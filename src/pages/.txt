@@ -1,0 +1,5 @@
+  const categoryData = {
+    Footwear: ["Skechers", "Sandals", "Slides", "Special Addition", "Sports Wear", "Loafers"],
+    Watches: ["Analog", "Digital", "Smartwatches", "Luxury"],
+    Bags: ["Wallets", "School Bag", "Laptop Bag", "Hand Bag", "Clutches"]
+  };
