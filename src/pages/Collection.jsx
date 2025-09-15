@@ -6,7 +6,7 @@ import { assets } from '../assets/assets'
 
 const categoryData = {
   Footwear: ["Skechers", "Sandals", "Slides", "Special Addition", "Sports Wear", "Loafers"],
-  Watches: ["Analog", "Digital", "Smartwatches", "Luxury"],
+  Watches: ["Analog", "Digital", "Smartwatches", "Luxury, Party Wear", "Sports Watch", "Womens", "Mens"],
   Bags: ["Wallets", "School Bag", "Laptop Bag", "Hand Bag", "Clutches"]
 };
 

@@ -75,6 +75,22 @@ import razorpay_logo from './razorpay_logo.png'
 import stripe_logo from './stripe_logo.png'
 import cross_icon from './cross_icon.png'
 
+// watches
+import rolex_datejust_plain_bezel_gents1 from "./watches/1.png"
+import rolex_datejust_plain_bezel_gents2 from "./watches/2.png"
+import rolex_datejust_plain_bezel_gents3 from "./watches/3.png"
+import rolex_datejust_plain_bezel_gents4 from "./watches/4.png"
+import rolex_datejust_plain_bezel_gents5 from "./watches/5.png"
+import rolex_datejust_plain_bezel_gents6 from "./watches/6.png"
+import rolex_datejust_plain_bezel_gents7 from "./watches/7.png"
+import rolex_datejust_plain_bezel_gents8 from "./watches/8.png"
+import rolex_datejust_plain_bezel_gents9 from "./watches/9.png"
+import rolex_datejust_plain_bezel_gents10 from "./watches/10.png"
+import rolex_datejust_plain_bezel_gents11 from "./watches/11.png"
+import rolex_datejust_plain_bezel_gents12 from "./watches/12.png"
+import rolex_datejust_plain_bezel_gents13 from "./watches/13.png"
+
+
 export const assets = {
     logo,
     hero_img,
@@ -98,23 +114,23 @@ export const assets = {
 
 export const products = [
     {
-        _id: "aaaaa",
-        name: "Women Round Neck Cotton Top",
-        description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
-        price: 100,
-        image: [p_img1],
-        category: "Watches",
-        subCategory: "Skechers",
-        sizes: ["S", "M", "L"],
-        date: 1716634345448,
-        bestseller: true
+        "_id": "aaaaa",
+        "name": "ROLEX Datejust Plain Bezel",
+        "description": "Gents collection Rolex Datejust with plain bezel, AA grade quality, 42mm size, stainless steel chain with brass case and date feature. Includes Rolex monogram power lock. Available in different colours.",
+        "price": 100,
+        "image": [rolex_datejust_plain_bezel_gents1, rolex_datejust_plain_bezel_gents2, rolex_datejust_plain_bezel_gents3, rolex_datejust_plain_bezel_gents4, rolex_datejust_plain_bezel_gents5, rolex_datejust_plain_bezel_gents6, rolex_datejust_plain_bezel_gents7, rolex_datejust_plain_bezel_gents8, rolex_datejust_plain_bezel_gents9, rolex_datejust_plain_bezel_gents10, rolex_datejust_plain_bezel_gents11, rolex_datejust_plain_bezel_gents12, rolex_datejust_plain_bezel_gents13],
+        "category": "Watches",
+        "subCategory": ["Luxury, Party Wear", "Mens", "Womens"],
+        "sizes": [],
+        "date": 1716634345448,
+        "bestseller": false
     },
     {
         _id: "aaaab",
         name: "Men Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 200,
-        image: [p_img2_1,p_img2_2,p_img2_3,p_img2_4],
+        image: [p_img2_1, p_img2_2, p_img2_3, p_img2_4],
         category: "Footwear",
         subCategory: "Skechers",
         sizes: ["M", "L", "XL"],
