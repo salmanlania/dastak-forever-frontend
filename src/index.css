@@ -29,3 +29,7 @@ a.active hr {
     color: white;
   }
 }
+
+.animate-stretch {
+  animation: stretch 2s ease-in-out infinite;
+}
