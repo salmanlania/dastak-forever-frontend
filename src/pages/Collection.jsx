@@ -1,13 +1,13 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Title from '../components/Title'
-import ProductItem from '../components/ProductItem'
-import { ShopContext } from '../context/ShopContext'
+import { useContext, useEffect, useState } from 'react'
 import { assets } from '../assets/assets'
+import ProductItem from '../components/ProductItem'
+import Title from '../components/Title'
+import { ShopContext } from '../context/ShopContext'
 
 const categoryData = {
-  Footwear: ["Skechers", "Sandals", "Slides", "Special Addition", "Sports Wear", "Loafers"],
-  Watches: ["Analog", "Digital", "Smartwatches", "Luxury"],
-  Bags: ["Wallets", "School Bag", "Laptop Bag", "Hand Bag", "Clutches"]
+  "Abayas": ["Casual Abayas", "Signature Abayas", "Occasion Abayas"],
+  "Stroller Scarves": ["Plain Strollers", "Printed Strollers", "Premium Strollers"],
+  "Modest Wraps": ["Irani Styles", "Classic Wraps", "Statement Wraps"]
 };
 
 const Collection = () => {
@@ -86,25 +86,28 @@ const Collection = () => {
         <div className={`border border-gray-300 pl-5 py-3 mt-6 ${showFilter ? '' : 'hidden'} sm:block`}>
           <p className='mb-3 text-sm font-medium'>CATEGORIES</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
-            {Object.keys(categoryData).map((cat , index) => (
-              <p key={index} className='flex gap-2'>
-                <input
-                  className='w-3'
-                  value={cat}
-                  onChange={toggleCategory}
-                  type="checkbox"
-                  checked={category.includes(cat)}
-                />
-                {cat}
-              </p>
-            ))}
+            {Object.keys(categoryData).map((cat, index) => {
+              console.log('cat', cat);
+              return (
+                <p key={index} className='flex gap-2'>
+                  <input
+                    className='w-3'
+                    value={cat}
+                    onChange={toggleCategory}
+                    type="checkbox"
+                    checked={category.includes(cat)}
+                  />
+                  {cat}
+                </p>
+              )
+            })}
           </div>
         </div>
 
         <div className={`pl-5 py-3 my-5 ${category.length > 0 ? 'border border-gray-300' : ''} ${showFilter ? '' : 'hidden'} sm:block`}>
           <p className='mb-3 text-sm font-medium'>{category.length > 0 ? "TYPE" : null}</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
-            {category.length > 0 && categoryData[category[0]]?.map((subCat , index) => (
+            {category.length > 0 && categoryData[category[0]]?.map((subCat, index) => (
               <>
                 <p key={index} className='flex gap-2'>
                   <input
