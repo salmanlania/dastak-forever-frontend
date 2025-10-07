@@ -281,7 +281,7 @@ const ComingSoon = () => {
                 </p>
 
                 <p className="text-2xl font-semibold text-blue-500 mb-12">
-                    Stay Tuned for Something Extraordinary
+                    Stay Tuned for Something Mind-Blowing
                 </p>
 
                 {/* Timer */}
