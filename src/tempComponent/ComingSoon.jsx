@@ -277,7 +277,7 @@ const ComingSoon = () => {
                 </h1>
 
                 <p className="text-xl text-gray-600 mb-6">
-                    We will be celebrating the launch of our new site very soon!
+                    We'll be celebrating the launch of our new site very soon!
                 </p>
 
                 <p className="text-2xl font-semibold text-blue-500 mb-12">
