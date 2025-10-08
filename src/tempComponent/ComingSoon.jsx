@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react';
 import logo from '../assets/logo1.png'
+import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const ConfettiPiece = ({ color, rotation, left, delay }) => (
     <div
@@ -19,6 +20,7 @@ const ConfettiPiece = ({ color, rotation, left, delay }) => (
 );
 
 const ComingSoon = () => {
+    useDocumentTitle('Coming Soon');
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
         hours: 0,
