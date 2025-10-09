@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import logo from '../assets/logo1.png'
+import logo from '../assets/logo-2.1.jpg'
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const ConfettiPiece = ({ color, rotation, left, delay }) => (
@@ -20,7 +20,7 @@ const ConfettiPiece = ({ color, rotation, left, delay }) => (
 );
 
 const ComingSoon = () => {
-    useDocumentTitle('Coming Soon');
+    useDocumentTitle('Work In Progress');
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
         hours: 0,
@@ -29,11 +29,11 @@ const ComingSoon = () => {
     });
 
     const confettiColors = [
-        '#FF69B4', // Pink
-        '#00CED1', // Turquoise
-        '#FFD700', // Gold
-        '#FF6B6B', // Coral
-        '#98FB98', // Pale Green
+        '#FF69B4',
+        '#00CED1',
+        '#FFD700',
+        '#FF6B6B',
+        '#98FB98',
     ];
 
     const confettiPieces = Array.from({ length: 20 }, (_, i) => ({
@@ -43,21 +43,51 @@ const ComingSoon = () => {
         delay: Math.random() * 2
     }));
 
+    // useEffect(() => {
+    //     const launchDate = new Date();
+    //     launchDate.setDate(launchDate.getDate() + 10);
+
+    //     if (!localStorage.getItem('launchDate')) {
+    //         localStorage.setItem('launchDate', launchDate.getTime().toString());
+    //     }
+
+    //     const savedLaunchDate = parseInt(localStorage.getItem('launchDate'));
+
+    //     const calculateTimeLeft = () => {
+    //         const now = new Date().getTime();
+    //         const distance = savedLaunchDate - now;
+
+    //         if (distance < 0) {
+    //             setTimeLeft({
+    //                 days: 0,
+    //                 hours: 0,
+    //                 minutes: 0,
+    //                 seconds: 0
+    //             });
+    //             return;
+    //         }
+
+    //         setTimeLeft({
+    //             days: Math.floor(distance / (1000 * 60 * 60 * 24)),
+    //             hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
+    //             minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
+    //             seconds: Math.floor((distance % (1000 * 60)) / 1000)
+    //         });
+    //     };
+
+    //     calculateTimeLeft();
+
+    //     const timer = setInterval(calculateTimeLeft, 1000);
+
+    //     return () => clearInterval(timer);
+    // }, []);
+
     useEffect(() => {
-        // Set launch date to 30 days from when the component is first mounted
-        const launchDate = new Date();
-        launchDate.setDate(launchDate.getDate() + 30); // Add 30 days
-
-        // Save the launch date to localStorage so it persists across refreshes
-        if (!localStorage.getItem('launchDate')) {
-            localStorage.setItem('launchDate', launchDate.getTime().toString());
-        }
-
-        const savedLaunchDate = parseInt(localStorage.getItem('launchDate'));
+        const launchDate = new Date('2025-10-21T00:00:00');
 
         const calculateTimeLeft = () => {
             const now = new Date().getTime();
-            const distance = savedLaunchDate - now;
+            const distance = launchDate.getTime() - now;
 
             if (distance < 0) {
                 setTimeLeft({
@@ -77,10 +107,7 @@ const ComingSoon = () => {
             });
         };
 
-        // Calculate immediately
         calculateTimeLeft();
-
-        // Update every second
         const timer = setInterval(calculateTimeLeft, 1000);
 
         return () => clearInterval(timer);
@@ -101,7 +128,7 @@ const ComingSoon = () => {
                 />
 
                 <h1 className="text-6xl md:text-7xl font-bold mb-4 text-gray-800">
-                    COMING SOON
+                    WORK IN PROGRESS
                 </h1>
 
                 <p className="text-xl text-gray-600 mb-6">
@@ -129,13 +156,13 @@ const ComingSoon = () => {
                 <div className="flex space-x-6">
                     {[{ name: 'twitter', url: 'https://twitter.com/dasthakat' }, { name: 'facebook', url: 'https://facebook.com/dasthakat' }, { name: 'instagram', url: 'https://instagram.com/dasthakat' }].map(social => (
                         <a
-                            key={social.name}
-                            href={social.url}
+                            key={social?.name}
+                            href={social?.url}
                             className="text-gray-400 hover:text-gray-600 transition-colors"
                             rel="noopener noreferrer"
                             target="_blank"
                         >
-                            <span className="capitalize">{social.name}</span>
+                            <span className="capitalize">{social?.name}</span>
                         </a>
                     ))}
                 </div>
@@ -144,7 +171,6 @@ const ComingSoon = () => {
     );
 };
 
-// Add the float animation to your CSS
 const style = document.createElement('style');
 style.textContent = `
   @keyframes float {
