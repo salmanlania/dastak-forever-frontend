@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react';
-import logo from '../assets/logo-2.1.jpg'
 import useDocumentTitle from '../hooks/useDocumentTitle';
 
 const ConfettiPiece = ({ color, rotation, left, delay }) => (
@@ -7,20 +6,20 @@ const ConfettiPiece = ({ color, rotation, left, delay }) => (
         className="absolute animate-float"
         style={{
             left: `${left}%`,
-            animation: `float 3s ease-in-out infinite`,
             animationDelay: `${delay}s`,
             transform: `rotate(${rotation}deg)`,
         }}
     >
         <div
-            className="w-6 h-1 rounded-full"
+            className="w-2 h-6 rounded-full opacity-70"
             style={{ backgroundColor: color }}
         />
     </div>
 );
 
 const ComingSoon = () => {
-    useDocumentTitle('Work In Progress');
+    useDocumentTitle('Coming Soon | Your Store');
+
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
         hours: 0,
@@ -28,59 +27,14 @@ const ComingSoon = () => {
         seconds: 0
     });
 
-    const confettiColors = [
-        '#FF69B4',
-        '#00CED1',
-        '#FFD700',
-        '#FF6B6B',
-        '#98FB98',
-    ];
+    const confettiColors = ['#FF69B4', '#00CED1', '#FFD700', '#FF6B6B', '#98FB98'];
 
-    const confettiPieces = Array.from({ length: 20 }, (_, i) => ({
+    const confettiPieces = Array.from({ length: 30 }, (_, i) => ({
         color: confettiColors[i % confettiColors.length],
         rotation: Math.random() * 360,
         left: Math.random() * 100,
         delay: Math.random() * 2
     }));
-
-    // useEffect(() => {
-    //     const launchDate = new Date();
-    //     launchDate.setDate(launchDate.getDate() + 10);
-
-    //     if (!localStorage.getItem('launchDate')) {
-    //         localStorage.setItem('launchDate', launchDate.getTime().toString());
-    //     }
-
-    //     const savedLaunchDate = parseInt(localStorage.getItem('launchDate'));
-
-    //     const calculateTimeLeft = () => {
-    //         const now = new Date().getTime();
-    //         const distance = savedLaunchDate - now;
-
-    //         if (distance < 0) {
-    //             setTimeLeft({
-    //                 days: 0,
-    //                 hours: 0,
-    //                 minutes: 0,
-    //                 seconds: 0
-    //             });
-    //             return;
-    //         }
-
-    //         setTimeLeft({
-    //             days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-    //             hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-    //             minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-    //             seconds: Math.floor((distance % (1000 * 60)) / 1000)
-    //         });
-    //     };
-
-    //     calculateTimeLeft();
-
-    //     const timer = setInterval(calculateTimeLeft, 1000);
-
-    //     return () => clearInterval(timer);
-    // }, []);
 
     useEffect(() => {
         const launchDate = new Date('2025-10-21T00:00:00');
@@ -90,12 +44,7 @@ const ComingSoon = () => {
             const distance = launchDate.getTime() - now;
 
             if (distance < 0) {
-                setTimeLeft({
-                    days: 0,
-                    hours: 0,
-                    minutes: 0,
-                    seconds: 0
-                });
+                setTimeLeft({ days: 0, hours: 0, minutes: 0, seconds: 0 });
                 return;
             }
 
@@ -114,55 +63,54 @@ const ComingSoon = () => {
     }, []);
 
     return (
-        <div className="min-h-screen bg-white relative overflow-hidden">
+        <div className="min-h-screen bg-gradient-to-br from-pink-50 to-blue-100 relative overflow-hidden font-sans">
             {confettiPieces.map((piece, index) => (
                 <ConfettiPiece key={index} {...piece} />
             ))}
 
             <div className="relative z-10 flex flex-col items-center justify-center min-h-screen px-4 text-center">
-                {/* Logo with stretch animation */}
-                <img
-                    src={logo}
-                    alt="Logo"
-                    className="mb-6 w-96 h-auto animate-stretch"
-                />
-
-                <h1 className="text-6xl md:text-7xl font-bold mb-4 text-gray-800">
-                    WORK IN PROGRESS
+                <h1 className="text-4xl md:text-6xl font-extrabold text-gray-800 mb-4 animate-fade-in">
+                    Something Beautiful is Coming Your Way
                 </h1>
 
-                <p className="text-xl text-gray-600 mb-6">
-                    We'll be celebrating the launch of our new site very soon!
+                <p className="text-lg md:text-xl text-gray-600 mb-4 max-w-xl animate-fade-in delay-200">
+                    We’re crafting an experience unlike any other. Get ready for the big reveal.
                 </p>
 
-                <p className="text-2xl font-semibold text-blue-500 mb-12">
-                    Stay Tuned for Something Mind-Blowing
+                <p className="text-xl text-pink-600 font-semibold mb-10 animate-fade-in delay-400">
+                    Launching In:
                 </p>
 
-                {/* Timer */}
-                <div className="flex space-x-6 mb-12">
+                <div className="flex flex-wrap gap-6 justify-center mb-12 animate-fade-in delay-600">
                     {Object.entries(timeLeft).map(([unit, value]) => (
-                        <div key={unit} className="flex flex-col items-center">
-                            <div className="text-4xl font-bold text-gray-800 mb-2">
+                        <div
+                            key={unit}
+                            className="bg-white shadow-md rounded-lg p-4 w-24 h-24 flex flex-col justify-center items-center"
+                        >
+                            <div className="text-3xl font-bold text-gray-800">
                                 {String(value).padStart(2, '0')}
                             </div>
-                            <div className="text-sm text-gray-500 uppercase">
+                            <div className="text-sm uppercase text-gray-500 mt-1 tracking-wide">
                                 {unit}
                             </div>
                         </div>
                     ))}
                 </div>
 
-                <div className="flex space-x-6">
-                    {[{ name: 'twitter', url: 'https://twitter.com/dasthakat' }, { name: 'facebook', url: 'https://facebook.com/dasthakat' }, { name: 'instagram', url: 'https://instagram.com/dasthakat' }].map(social => (
+                <div className="flex space-x-6 text-lg animate-fade-in delay-800">
+                    {[
+                        { name: 'Twitter', url: 'https://twitter.com/dasthakat' },
+                        { name: 'Facebook', url: 'https://facebook.com/dasthakat' },
+                        { name: 'Instagram', url: 'https://instagram.com/dasthakat' }
+                    ].map(({ name, url }) => (
                         <a
-                            key={social?.name}
-                            href={social?.url}
-                            className="text-gray-400 hover:text-gray-600 transition-colors"
-                            rel="noopener noreferrer"
+                            key={name}
+                            href={url}
                             target="_blank"
+                            rel="noopener noreferrer"
+                            className="text-gray-500 hover:text-pink-600 transition-colors font-medium"
                         >
-                            <span className="capitalize">{social?.name}</span>
+                            {name}
                         </a>
                     ))}
                 </div>
@@ -174,21 +122,37 @@ const ComingSoon = () => {
 const style = document.createElement('style');
 style.textContent = `
   @keyframes float {
-    0%, 100% { transform: translateY(0) rotate(var(--rotation)); }
-    50% { transform: translateY(-20px) rotate(var(--rotation)); }
-  }
-  
-  @keyframes stretch {
-    0%, 100% { transform: scaleX(1); }
-    50% { transform: scaleX(1.2); }
+    0%, 100% { transform: translateY(0) rotate(var(--rotation)); opacity: 1; }
+    50% { transform: translateY(-20px) rotate(var(--rotation)); opacity: 0.6; }
   }
 
   .animate-float {
     animation: float 3s ease-in-out infinite;
   }
 
-  .animate-stretch {
-    animation: stretch 2s ease-in-out infinite;
+  @keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .animate-fade-in {
+    animation: fade-in 1s ease-out forwards;
+  }
+
+  .delay-200 {
+    animation-delay: 0.2s;
+  }
+
+  .delay-400 {
+    animation-delay: 0.4s;
+  }
+
+  .delay-600 {
+    animation-delay: 0.6s;
+  }
+
+  .delay-800 {
+    animation-delay: 0.8s;
   }
 `;
 document.head.appendChild(style);
