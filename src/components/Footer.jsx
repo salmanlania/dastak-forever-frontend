@@ -4,13 +4,18 @@ import { useNavigate } from 'react-router-dom'
 
 const Footer = () => {
   const navigate = useNavigate();
-  
+
   const footerAction = (path) => {
-    if (path === 'home') {
-      navigate('/');
-    } else if (path === 'about') {
-      navigate('/about');
-    }
+    // if (path === 'home') {
+    // navigate('/');
+    // } else if (path === 'about') {
+    // navigate('/about');
+    // }
+    if (path === 'home') navigate('/');
+    else if (path === 'about') navigate('/about');
+    else if (path === 'return-policy') navigate('/return-policy');
+    else if (path === 'privacy-policy') navigate('/privacy-policy');
+    else if (path === 'delivery') navigate('/delivery');
   }
 
   return (
@@ -25,10 +30,11 @@ const Footer = () => {
         <div>
           <p className='text-xl font-medium mb-5'>COMPANY</p>
           <ul className='flex flex-col gap-1 text-gray-600'>
-            <li style={{cursor : 'pointer'}} onClick={() => footerAction('home')}>Home</li>
-            <li style={{cursor : 'pointer'}} onClick={() => footerAction('about')}>About us</li>
-            <li style={{cursor : 'pointer'}} onClick={() => footerAction()}>Delivery</li>
-            <li style={{cursor : 'pointer'}} onClick={() => footerAction()}>Privacy policy</li>
+            <li style={{ cursor: 'pointer' }} onClick={() => footerAction('home')}>Home</li>
+            <li style={{ cursor: 'pointer' }} onClick={() => footerAction('about')}>About us</li>
+            <li style={{ cursor: 'pointer' }} onClick={() => footerAction('return-policy')}>Return Policy</li>
+            <li style={{ cursor: 'pointer' }} onClick={() => footerAction('delivery')}>Delivery</li> 
+            <li style={{ cursor: 'pointer' }} onClick={() => footerAction('privacy-policy')}>Privacy Policy</li>
           </ul>
         </div>
 
