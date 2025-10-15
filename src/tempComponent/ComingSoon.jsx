@@ -1,5 +1,7 @@
 import { useEffect, useState } from 'react';
 import useDocumentTitle from '../hooks/useDocumentTitle';
+import { toast } from 'react-toastify';
+import { useNavigate } from 'react-router-dom';
 
 const ConfettiPiece = ({ color, rotation, left, delay }) => (
     <div
@@ -19,6 +21,7 @@ const ConfettiPiece = ({ color, rotation, left, delay }) => (
 
 const ComingSoon = () => {
     useDocumentTitle('Coming Soon | Your Store');
+    const navigate = useNavigate()
 
     const [timeLeft, setTimeLeft] = useState({
         days: 0,
