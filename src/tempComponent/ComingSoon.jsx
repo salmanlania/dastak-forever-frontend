@@ -43,45 +43,6 @@ const ComingSoon = () => {
         delay: Math.random() * 2
     }));
 
-    // useEffect(() => {
-    //     const launchDate = new Date();
-    //     launchDate.setDate(launchDate.getDate() + 10);
-
-    //     if (!localStorage.getItem('launchDate')) {
-    //         localStorage.setItem('launchDate', launchDate.getTime().toString());
-    //     }
-
-    //     const savedLaunchDate = parseInt(localStorage.getItem('launchDate'));
-
-    //     const calculateTimeLeft = () => {
-    //         const now = new Date().getTime();
-    //         const distance = savedLaunchDate - now;
-
-    //         if (distance < 0) {
-    //             setTimeLeft({
-    //                 days: 0,
-    //                 hours: 0,
-    //                 minutes: 0,
-    //                 seconds: 0
-    //             });
-    //             return;
-    //         }
-
-    //         setTimeLeft({
-    //             days: Math.floor(distance / (1000 * 60 * 60 * 24)),
-    //             hours: Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60)),
-    //             minutes: Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60)),
-    //             seconds: Math.floor((distance % (1000 * 60)) / 1000)
-    //         });
-    //     };
-
-    //     calculateTimeLeft();
-
-    //     const timer = setInterval(calculateTimeLeft, 1000);
-
-    //     return () => clearInterval(timer);
-    // }, []);
-
     useEffect(() => {
         const launchDate = new Date('2025-10-21T00:00:00');
 
