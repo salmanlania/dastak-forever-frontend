@@ -17,7 +17,7 @@ import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 import PrivacyPolicy from './pages/PrivacyPolicy'
 import DeliveryPolicy from './pages/DeliveryPolicy'
-// import ComingSoon from './tempComponent/ComingSoon'
+import ComingSoon from './tempComponent/ComingSoon'
 
 const App = () => {
   return (
