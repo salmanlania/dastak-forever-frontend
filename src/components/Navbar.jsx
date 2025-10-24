@@ -19,8 +19,8 @@ const Navbar = () => {
                     <p>HOME</p>
                     <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
                 </NavLink>
-                <NavLink to='/collection' className='flex flex-col items-center gap-1'>
-                    <p>COLLECTION</p>
+                <NavLink to='/product' className='flex flex-col items-center gap-1'>
+                    <p>PRODUCTS</p>
                     <hr className='w-2/4 border-none h-[1.5px] bg-gray-700 hidden' />
                 </NavLink>
                 <NavLink to='/about' className='flex flex-col items-center gap-1'>
@@ -34,7 +34,7 @@ const Navbar = () => {
             </ul>
 
             <div className='flex items-center gap-6'>
-                <img onClick={() => { setShowSearch(true); navigate('/collection') }} className='w-5 cursor-pointer' src={assets.search_icon} alt="" />
+                <img onClick={() => { setShowSearch(true); navigate('/product') }} className='w-5 cursor-pointer' src={assets.search_icon} alt="" />
                 {/* <div className='group relative'>
                     <img onClick={() => { navigate('/login') }} className='w-5 cursor-pointer' src={assets.profile_icon} alt="" />
 
@@ -61,7 +61,7 @@ const Navbar = () => {
                         <p>Back</p>
                     </div>
                     <NavLink onClick={() => setVisble(false)} to="/" className='py-2 pl-6 border'>HOME</NavLink>
-                    <NavLink onClick={() => setVisble(false)} to='/collection' className='py-2 pl-6 border'>COLLECTION</NavLink>
+                    <NavLink onClick={() => setVisble(false)} to='/product' className='py-2 pl-6 border'>COLLECTION</NavLink>
                     <NavLink onClick={() => setVisble(false)} to='/about' className='py-2 pl-6 border'>ABOUT</NavLink>
                     <NavLink onClick={() => setVisble(false)} to='/contact' className='py-2 pl-6 border'>CONTACT</NavLink>
                 </div>
