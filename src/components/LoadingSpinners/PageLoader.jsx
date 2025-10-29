@@ -2,7 +2,7 @@ import { GiShipWheel } from 'react-icons/gi';
 
 const PageLoader = () => {
   return (
-    <div className="flex h-[calc(100vh-8.5rem)] w-full items-center justify-center text-primary">
+    <div className="flex h-[calc(100vh-8.5rem)] w-full items-center justify-center text-blue">
       <div>
         <h1 className="flex items-center text-xl font-bold md:text-3xl">
           L

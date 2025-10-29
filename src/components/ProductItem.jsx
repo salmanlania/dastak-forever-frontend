@@ -47,10 +47,10 @@ const ProductItem = ({ id, image, name, price }) => {
 
       {/* Product Info */}
       <div className='pt-3 pb-2'>
-        <p className='text-base sm:text-lg font-medium text-[#1A1A1A] !important tracking-wide leading-snug line-clamp-2'>
+        <p className='text-sm sm:text-md font-medium text-[#1A1A1A] !important tracking-wide leading-snug line-clamp-2'>
           {name}
         </p>
-        <p className='text-[17px] sm:text-[19px] font-semibold text-[#C4A484] !important tracking-wider mt-1 italic'>
+        <p className='text-[13px] sm:text-[15px] font-semibold text-[#C4A484] !important tracking-wider mt-1 italic'>
           {currency}{price}
         </p>
       </div>

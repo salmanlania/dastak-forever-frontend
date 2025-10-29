@@ -3,6 +3,8 @@ import { assets } from '../assets/assets'
 import ProductItem from '../components/ProductItem'
 import Title from '../components/Title'
 import { ShopContext } from '../context/ShopContext'
+import useError from '../hooks/useError';
+import { supabase } from '../lib/supabaseClient';
 
 const categoryData = {
   "Abayas": ["Casual Abayas", "Signature Abayas", "Occasion Abayas"],
@@ -11,7 +13,6 @@ const categoryData = {
 };
 
 const Collection = () => {
-
   const { products, search, showSearch } = useContext(ShopContext);
 
   const [filterProducts, setFilterProducts] = useState([]);
@@ -19,6 +20,35 @@ const Collection = () => {
   const [subCategory, setSubCategory] = useState([]);
   const [showFilter, setShowFilter] = useState(false);
   const [sortType, setSortType] = useState('relavent')
+  const [items, setItems] = useState([]);
+  const [loading, setLoading] = useState(false);
+  const handleError = useError();
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      setLoading(true);
+      try {
+        const { data, error } = await supabase
+          .from('products')
+          .select('*')
+          .order('order_id', { ascending: false });
+
+        if (error) throw error;
+
+        // setItems(data || []);
+        setItems(data.length > 0 ? data : products);
+        console.log('data' , data)
+        console.log('data.length > 0' , data.length);
+        console.log('products' , products)
+      } catch (err) {
+        handleError(err);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   const toggleCategory = (e) => {
     if (category.includes(e.target.value)) {
@@ -39,7 +69,7 @@ const Collection = () => {
   }
 
   const applyFilter = () => {
-    let productsCopy = products.slice()
+    let productsCopy = items.slice()
     if (showSearch && search) {
       productsCopy = productsCopy.filter(item => item.name.toLowerCase().includes(search.toLowerCase()))
     } if (category.length > 0) {
@@ -77,7 +107,6 @@ const Collection = () => {
     sortProduct();
   }, [sortType])
 
-
   return (
     <div className='flex flex-col sm:flex-row gap-1 sm:gap-10 pt-10 border-t'>
       <div className='min-w-60'>
@@ -87,7 +116,6 @@ const Collection = () => {
           <p className='mb-3 text-sm font-medium'>CATEGORIES</p>
           <div className='flex flex-col gap-2 text-sm font-light text-gray-700'>
             {Object.keys(categoryData).map((cat, index) => {
-              console.log('cat', cat);
               return (
                 <p key={index} className='flex gap-2'>
                   <input
@@ -139,13 +167,24 @@ const Collection = () => {
           </select>
         </div>
 
-        <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
-          {
+        {/* <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'> */}
+          {/* {
             filterProducts.map((item, index) => (
               <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price} />
             ))
-          }
-        </div>
+          } */}
+          {loading ? (
+            <div className="flex justify-center items-center min-h-[200px]">
+              <div className="loader"></div>
+            </div>
+          ) : (
+            <div className='grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6'>
+              {filterProducts.map((item, index) => (
+                <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price} />
+              ))}
+            </div>
+          )}
+        {/* </div> */}
       </div>
     </div >
   )
