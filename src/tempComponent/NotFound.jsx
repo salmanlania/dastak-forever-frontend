@@ -1,35 +1,35 @@
-import React from "react";
-import { useNavigate } from "react-router-dom";
+// import { Button, Typography, Container } from '@mui/material';
+// import { Link } from 'react-router-dom';
+// import useDocumentTitle from '../hooks/useDocumentTitle';
 
-const NotFound = () => {
-    const navigate = useNavigate();
+// const NotFound = () => {
+//   useDocumentTitle('Not Found');
+  
+//   return (
+//     <Container maxWidth="sm" sx={{ textAlign: 'center', marginTop: '50px' }}>
+//       <Typography variant="h3">
+//         404
+//       </Typography>
+//       <Typography variant="h6" color="textSecondary" paragraph>
+//         Sorry, the page you visited does not exist.
+//       </Typography>
+//       <Link to="/" style={{ textDecoration: 'none' }}>
+//         <Button variant="contained" sx={{color: '#ffff !important' , fontWeight : 'bold' , background: '#065098 !important'}}>
+//           Back Home
+//         </Button>
+//       </Link>
+//     </Container>
+//   );
+// };
 
-    return (
-        <section className="min-h-screen bg-white text-gray-800 flex flex-col items-center justify-center px-6 py-12">
-            <div className="text-center max-w-md">
-                <h1 className="text-9xl font-bold text-blue-500 mb-4">404</h1>
+// export default NotFound;
 
-                <h2 className="text-3xl md:text-4xl font-semibold text-black mb-4">
-                    Page Not Found
-                </h2>
+import React from 'react'
 
-                <p className="text-gray-600 mb-8 leading-relaxed">
-                    Oops! The page you’re looking for doesn’t exist or has been moved.
-                </p>
-
-                <button
-                    onClick={() => navigate(-1)}
-                    className="bg-blue-500 text-white px-6 py-3 rounded-full font-medium transition-colors duration-300"
-                >
-                    Go Back
-                </button>
-            </div>
-
-            <p className="text-gray-400 text-sm mt-10">
-                © {new Date().getFullYear()} Dasthakat. All rights reserved.
-            </p>
-        </section>
-    );
-};
-
-export default NotFound;
+export default function NotFound() {
+  return (
+    <div>
+      Not Found
+    </div>
+  )
+}

@@ -5,8 +5,26 @@
 @tailwind components;
 @tailwind utilities;
 
+:root {
+  --primary: #1A1A1A;
+  --accent: #C9A227;
+  --secondary: #E8DED1;
+  --background: #FAF9F6;
+  --text-primary: #2C2C2C;
+  --text-secondary: #5F5F5F;
+  --border: #E0E0E0;
+  --hover: #B5835A;
+
+  --main-bg: #121212 !important;
+  --card-bg: #1C1C1C !important;
+  --main-text: #F8F3E7 !important;
+  --highlight-gold: #D4AF37 !important;
+  --border-light: #2A2A2A !important;
+}
+
 * {
-  font-family: Outfit;
+  background-color: var(--background) I !important;
+  color: var(--text-primary) I !important;
 }
 
 .prata-regular {
@@ -20,7 +38,7 @@ a.active hr {
 }
 
 /* ::-webkit-scrollbar { */
-  /* display: none; */
+/* display: none; */
 /* } */
 
 @media (max-width:640px) {
@@ -32,4 +50,19 @@ a.active hr {
 
 .animate-stretch {
   animation: stretch 2s ease-in-out infinite;
+}
+
+.scrolling-text {
+  white-space: nowrap;
+  display: inline-block;
+  animation: scroll-left 10s linear infinite;
+}
+
+@keyframes scroll-left {
+  0% {
+    transform: translateX(100%);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
 }
