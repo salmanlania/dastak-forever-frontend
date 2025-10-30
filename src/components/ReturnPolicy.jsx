@@ -4,7 +4,6 @@ const ReturnPolicy = () => {
   return (
     <section className="min-h-screen bg-white text-gray-800 flex items-center justify-center px-6 py-12">
       <div className="max-w-3xl w-full">
-        {/* Title */}
         <h1 className="text-3xl md:text-4xl font-semibold text-center text-black mb-6 tracking-wide">
           Dasthakat Return Policy
         </h1>
@@ -12,7 +11,6 @@ const ReturnPolicy = () => {
           Effective from October 2025
         </p>
 
-        {/* Policy Box */}
         <div className="bg-[#f9f9f9] rounded-2xl shadow-sm p-6 md:p-10 space-y-6 border border-gray-200">
           <h2 className="text-2xl font-medium text-[#C19A6B]">
             No Return Policy
@@ -23,7 +21,6 @@ const ReturnPolicy = () => {
             a strict <strong>No Return, No Exchange</strong> policy.
           </p>
 
-          {/* Order Accuracy */}
           <div>
             <h3 className="text-xl font-medium text-[#C19A6B] mb-2">
               Order Accuracy
@@ -35,7 +32,6 @@ const ReturnPolicy = () => {
             </p>
           </div>
 
-          {/* Damaged Items */}
           <div>
             <h3 className="text-xl font-medium text-[#C19A6B] mb-2">
               Damaged or Defective Items
@@ -53,7 +49,6 @@ const ReturnPolicy = () => {
             </p>
           </div>
 
-          {/* Customer Commitment */}
           <div>
             <h3 className="text-xl font-medium text-[#C19A6B] mb-2">
               Customer Commitment
@@ -66,7 +61,6 @@ const ReturnPolicy = () => {
           </div>
         </div>
 
-        {/* Footer */}
         <p className="text-center text-gray-500 text-sm mt-10">
           © {new Date().getFullYear()} Dasthakat. All rights reserved.
         </p>

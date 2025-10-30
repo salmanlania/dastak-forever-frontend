@@ -21,7 +21,7 @@ const RelatedProducts = ({ category, subCategory }) => {
 
   return (
     <div className="my-20 px-4 md:px-10">
-      {/* Heading */}
+
       <div className="text-center mb-10">
         <Title text1="RELATED" text2="PRODUCTS" />
         <div className="w-20 h-[2px] bg-[var(--main-color)] mx-auto mt-2"></div>

@@ -2,11 +2,6 @@ import p_img2_1 from './p_img2_1.png'
 import p_img2_2 from './p_img2_2.png'
 import p_img2_3 from './p_img2_3.png'
 import p_img2_4 from './p_img2_4.png'
-import p_img3 from './p_img3.png'
-import p_img4 from './p_img4.png'
-import p_img5 from './p_img5.png'
-import p_img9 from './p_img9.png'
-
 
 // import logo from './logo.png'
 import about_img from './about_img.png'
@@ -60,7 +55,7 @@ export const products = [
         name: "Women Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 130,
-        image: [p_img5, p_img2_1, p_img2_2, p_img2_3, p_img5, p_img2_1, p_img2_2, p_img2_3, p_img5, p_img2_1, p_img2_2, p_img2_3, p_img5, p_img2_1, p_img2_2, p_img2_3,],
+        image: [p_img2_1, p_img2_1, p_img2_2, p_img2_3, p_img2_3, p_img2_1, p_img2_2, p_img2_3, p_img2_3, p_img2_1, p_img2_2, p_img2_3, p_img2_3, p_img2_1, p_img2_2, p_img2_3,],
         category: "Abayas",
         subCategory: "Casual Abayas",
         sizes: ["M", "L", "XL"],
@@ -86,7 +81,7 @@ export const products = [
         name: "Girls Round Neck Cotton Topper",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 220,
-        image: [p_img3],
+        image: [p_img2_1],
         category: "Stroller Scarves",
         subCategory: "Premium Strollers",
         sizes: ["S", "L", "XL"],
@@ -99,7 +94,7 @@ export const products = [
         name: "Men Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 110,
-        image: [p_img4],
+        image: [p_img2_1],
         category: "Stroller Scarves",
         subCategory: "Printed Strollers",
         sizes: ["S", "M", "XXL"],
@@ -112,7 +107,7 @@ export const products = [
         name: "Boy Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 160,
-        image: [p_img9],
+        image: [p_img2_1],
         category: "Modest Wraps",
         subCategory: "Statement Wraps",
         sizes: ["S", "M", "L", "XL"],
@@ -125,7 +120,7 @@ export const products = [
         name: "Women Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 130,
-        image: [p_img5],
+        image: [p_img2_1],
         category: "Abayas",
         subCategory: "Casual Abayas",
         sizes: ["M", "L", "XL"],
@@ -151,7 +146,7 @@ export const products = [
         name: "Girls Round Neck Cotton Topper",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 220,
-        image: [p_img3],
+        image: [p_img2_1],
         category: "Stroller Scarves",
         subCategory: "Premium Strollers",
         sizes: ["S", "L", "XL"],
@@ -164,7 +159,7 @@ export const products = [
         name: "Men Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 110,
-        image: [p_img4],
+        image: [p_img2_1],
         category: "Stroller Scarves",
         subCategory: "Printed Strollers",
         sizes: ["S", "M", "XXL"],
@@ -177,7 +172,7 @@ export const products = [
         name: "Boy Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 160,
-        image: [p_img9],
+        image: [p_img2_1],
         category: "Modest Wraps",
         subCategory: "Statement Wraps",
         sizes: ["S", "M", "L", "XL"],
@@ -190,7 +185,7 @@ export const products = [
         name: "Women Round Neck Cotton Top",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 130,
-        image: [p_img5],
+        image: [p_img2_1],
         category: "Abayas",
         subCategory: "Casual Abayas",
         sizes: ["M", "L", "XL"],
@@ -216,7 +211,7 @@ export const products = [
         name: "Girls Round Neck Cotton Topper",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 220,
-        image: [p_img3],
+        image: [p_img2_1],
         category: "Abayas",
         subCategory: "Casual Abayas",
         sizes: ["S", "L", "XL"],
@@ -229,7 +224,7 @@ export const products = [
         name: "Men Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 110,
-        image: [p_img4],
+        image: [p_img2_1],
         category: "Stroller Scarves",
         subCategory: "Printed Strollers",
         sizes: ["S", "M", "XXL"],
@@ -242,7 +237,7 @@ export const products = [
         name: "Boy Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 160,
-        image: [p_img9],
+        image: [p_img2_1],
         category: "Modest Wraps",
         subCategory: "Statement Wraps",
         sizes: ["S", "M", "L", "XL"],
@@ -255,7 +250,7 @@ export const products = [
         name: "Boy Round Neck Pure Cotton T-shirt",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 160,
-        image: [p_img9],
+        image: [p_img2_1],
         category: "Abayas",
         subCategory: "Casual Abayas",
         sizes: ["S", "M", "L", "XL"],

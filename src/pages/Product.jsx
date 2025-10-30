@@ -9,7 +9,6 @@ import { addToCart } from "../store/cartSlice";
 
 const Product = () => {
   const { productId } = useParams();
-  // const { products, currency, addToCart } = useContext(ShopContext);
   const products = useSelector((state) => state.product.items || []);
   const currency = "Rs."
   const dispatch = useDispatch();

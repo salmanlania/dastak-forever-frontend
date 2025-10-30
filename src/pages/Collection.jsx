@@ -5,7 +5,6 @@ import useError from "../hooks/useError";
 import { supabase } from "../lib/supabaseClient";
 
 const Collection = () => {
-  // const { products, search, showSearch } = useContext(ShopContext);
   const products = useSelector((state) => state.product.items || []);
   const [filterProducts, setFilterProducts] = useState([]);
   const [sortType, setSortType] = useState("relevant");

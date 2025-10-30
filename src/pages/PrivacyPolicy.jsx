@@ -4,7 +4,6 @@ const PrivacyPolicy = () => {
   return (
     <section className="min-h-screen bg-white text-gray-800 flex items-center justify-center px-6 py-20">
       <div className="max-w-3xl w-full">
-        {/* Title */}
         <h1 className="text-3xl md:text-4xl font-semibold text-center text-black mb-4 tracking-wide">
           Dasthakat Privacy Policy
         </h1>
@@ -12,9 +11,7 @@ const PrivacyPolicy = () => {
           Effective from October 2025
         </p>
 
-        {/* Policy Box */}
         <div className="bg-[#fdfdfd] rounded-2xl shadow-md p-6 md:p-10 space-y-8 border border-gray-200">
-          {/* Introduction */}
           <div>
             <h2 className="text-2xl font-semibold text-[#C19A6B] mb-2">
               Introduction
@@ -27,7 +24,6 @@ const PrivacyPolicy = () => {
             </p>
           </div>
 
-          {/* Information Collection */}
           <div>
             <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
               Information We Collect
@@ -40,7 +36,6 @@ const PrivacyPolicy = () => {
             </p>
           </div>
 
-          {/* Usage of Information */}
           <div>
             <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
               How We Use Your Information
@@ -53,7 +48,6 @@ const PrivacyPolicy = () => {
             </p>
           </div>
 
-          {/* Data Protection */}
           <div>
             <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
               Data Security
@@ -65,7 +59,6 @@ const PrivacyPolicy = () => {
             </p>
           </div>
 
-          {/* Cookies */}
           <div>
             <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
               Cookies & Tracking
@@ -77,7 +70,6 @@ const PrivacyPolicy = () => {
             </p>
           </div>
 
-          {/* Contact Section */}
           <div>
             <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
               Contact Us
@@ -95,7 +87,6 @@ const PrivacyPolicy = () => {
           </div>
         </div>
 
-        {/* Footer */}
         <p className="text-center text-gray-500 text-sm mt-10">
           © {new Date().getFullYear()} Dasthakat. All Rights Reserved.
         </p>

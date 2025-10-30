@@ -4,7 +4,6 @@ import PageLoader from '../components/LoadingSpinners/PageLoader';
 import MainLayout from '../layouts/MainLayout';
 import NotFound from '../tempComponent/NotFound';
 
-// Lazy loading pages
 const Home = lazy(() => import('../pages/Home'));
 const Product = lazy(() => import('../pages/Collection'));
 // const ProductDetail = lazy(() => import('../pages/Product'));
@@ -17,6 +16,7 @@ const PrivacyPolicy = lazy(() => import('../pages/PrivacyPolicy'));
 const DeliveryPolicy = lazy(() => import('../pages/DeliveryPolicy'));
 const PlaceOrder = lazy(() => import('../pages/PlaceOrder'));
 const Orders = lazy(() => import('../pages/Orders'));
+const ViewOrderDetails = lazy(() => import('../pages/OrderDetails'));
 
 function RoutesComponent() {
   return (
@@ -123,6 +123,14 @@ function RoutesComponent() {
           element={
             <Suspense fallback={<PageLoader />}>
               <Orders />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/orders/:id/:size"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <ViewOrderDetails />
             </Suspense>
           }
         />

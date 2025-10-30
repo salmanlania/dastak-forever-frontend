@@ -4,7 +4,6 @@ const DeliveryPolicy = () => {
   return (
     <section className="min-h-screen bg-white text-gray-800 flex items-center justify-center px-6 py-20">
       <div className="max-w-3xl w-full">
-        {/* Title */}
         <h1 className="text-3xl md:text-4xl font-semibold text-center text-black mb-4 tracking-wide">
           Dasthakat Delivery Policy
         </h1>
@@ -12,9 +11,7 @@ const DeliveryPolicy = () => {
           Effective from October 2025
         </p>
 
-        {/* Policy Box */}
         <div className="bg-[#fdfdfd] rounded-2xl shadow-md p-6 md:p-10 space-y-8 border border-gray-200">
-          {/* Introduction */}
           <div>
             <h2 className="text-2xl font-semibold text-[#C19A6B] mb-2">
               Delivery Overview
@@ -27,7 +24,6 @@ const DeliveryPolicy = () => {
             </p>
           </div>
 
-          {/* Processing Time */}
           <div>
             <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
               Order Processing Time
@@ -40,7 +36,6 @@ const DeliveryPolicy = () => {
             </p>
           </div>
 
-          {/* Delivery Duration */}
           <div>
             <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
               Delivery Timeframe
@@ -59,7 +54,6 @@ const DeliveryPolicy = () => {
             </ul>
           </div>
 
-          {/* Shipping Charges */}
           <div>
             <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
               Shipping Charges
@@ -71,7 +65,6 @@ const DeliveryPolicy = () => {
             </p>
           </div>
 
-          {/* Tracking */}
           <div>
             <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
               Order Tracking
@@ -82,8 +75,6 @@ const DeliveryPolicy = () => {
               your shipment in real-time.
             </p>
           </div>
-
-          {/* Address Accuracy */}
           <div>
             <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
               Address Accuracy
@@ -95,7 +86,6 @@ const DeliveryPolicy = () => {
             </p>
           </div>
 
-          {/* Customer Support */}
           <div>
             <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
               Need Help?
@@ -120,7 +110,6 @@ const DeliveryPolicy = () => {
           </div>
         </div>
 
-        {/* Footer */}
         <p className="text-center text-gray-500 text-sm mt-10">
           © {new Date().getFullYear()} Dasthakat. All Rights Reserved.
         </p>

@@ -22,8 +22,6 @@ const Navbar = () => {
         <>
             <div className='flex items-center justify-between py-6 font-medium'>
                 <Link to='/'><img className='w-[12rem]' src={assets.logo} alt="" /></Link>
-                {/* <Link to='/'><img className='w-[12rem]' alt="" /></Link> */}
-
                 <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
                     <NavLink to="/" className='flex flex-col items-center gap-1'>
                         <p>HOME</p>
@@ -46,10 +44,10 @@ const Navbar = () => {
                 <div className='flex items-center gap-6'>
                     {/* <img onClick={() => { setShowSearch(true); navigate('/product') }} className='w-5 cursor-pointer' src={assets.search_icon} alt="" /> */}
                     <Link to='/cart' className='relative'>
-                        <img className='w-5 min-w-5' src={assets.cart_icon} alt="" />
+                        <img className='w-6 min-w-6' src={assets.cart_icon} alt="" />
                         {/* <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 !bg-black !text-white aspect-square rounded-full text-[8px]'>{cartCount}</p> */}
                         {cartCount > 0 && (
-                            <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 !bg-black !text-white aspect-square rounded-full text-[8px]'>
+                            <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 !bg-white !text-black font-semibold text-xs aspect-square rounded-full'>
                                 {cartCount}
                             </p>
                         )}
@@ -57,8 +55,7 @@ const Navbar = () => {
                     <img onClick={() => setVisble(true)} className='w-5 cursor-pointer sm:hidden' src={assets.menu_icon} alt="" />
                 </div>
 
-                {/* Sidebar Menu For Small Screens */}
-                <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? 'w-full' : 'w-0'}`} >
+                <div className={`absolute top-0 right-0 bottom-0 z-[1000] overflow-hidden bg-white transition-all ${visible ? 'w-full' : 'w-0'}`} >
                     <div className='flex flex-col text-gray-600'>
                         <div onClick={() => setVisble(false)} className='flex items-center gap-4 p-3 '>
                             <img className='h-4 rotate-180' src={assets.dropdown_icon} alt="" />
