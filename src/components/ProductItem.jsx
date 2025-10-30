@@ -12,7 +12,6 @@ const ProductItem = ({ id, image, name, price, sizes, hideCartButton }) => {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    console.log(`Added to cart: ${name}, Size: ${size}, Qty: ${quantity}`);
     dispatch(addToCart({ id, size, quantity }));
   };
 
