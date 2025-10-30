@@ -1,39 +1,50 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Title from './Title'
-import { ShopContext } from '../context/ShopContext';
+import { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
 import ProductItem from './ProductItem';
+import Title from './Title';
 
 const RelatedProducts = ({ category, subCategory }) => {
+  const products = useSelector(state => state.product.items || []);
+  const [related, setRelated] = useState([]);
 
-    const [related, setRelated] = useState([])
+  useEffect(() => {
+    if (products.length > 0) {
+      let productsCopy = [...products];
+      productsCopy = productsCopy.filter(
+        (item) => category === item.category && subCategory === item.subCategory
+      );
 
-    const { products } = useContext(ShopContext)
+      console.log('productsCopy' , productsCopy) 
+      setRelated(productsCopy.slice(0, 5));
+    }
+  }, [products, category, subCategory]);
 
-    useEffect(() => {
+  if (related.length === 0) return null;
 
-        if (products.length > 0) {
-            let productsCopy = products.slice()
-            productsCopy = productsCopy.filter(item => category === item.category);
-            productsCopy = productsCopy.filter(item => subCategory === item.subCategory);
-            setRelated(productsCopy.slice(0, 5));
-        }
-    }, [products])
+  return (
+    <div className="my-20 px-4 md:px-10">
+      {/* Heading */}
+      <div className="text-center mb-10">
+        <Title text1="RELATED" text2="PRODUCTS" />
+        <div className="w-20 h-[2px] bg-[var(--main-color)] mx-auto mt-2"></div>
+        <p className="text-gray-500 text-sm mt-3">
+          Explore more styles that complement your choice.
+        </p>
+      </div>
 
-    return (
-        <div className='my-24'>
-            <div className='text-center text-3xl py-2'>
-                <Title text1={"RELATED"} text2={"PRODUCTS"} />
-            </div>
-
-            <div className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4 gap-y-6'>
-                {
-                    related.map((item, index) => (
-                        <ProductItem key={index} id={item._id} image={item.image} name={item.name} price={item.price} />
-                    ))
-                }
-            </div>
+        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6">
+          {related.map((item, index) => (
+            <ProductItem
+              key={index}
+              id={item._id}
+              image={item.image}
+              name={item.name}
+              price={item.price}
+            />
+          ))}
         </div>
-    )
-}
+    </div>
+  );
+};
 
-export default RelatedProducts
+export default RelatedProducts;

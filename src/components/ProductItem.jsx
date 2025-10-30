@@ -1,61 +1,86 @@
-// import React, { useContext } from 'react'
-// import { ShopContext } from '../context/ShopContext'
-// import { Link } from 'react-router-dom';
+import React, { useContext, useState } from "react";
+import { ShopContext } from "../context/ShopContext";
+import { Link } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addToCart } from "../store/cartSlice";
 
-// const ProductItem = ({ id, image, name, price }) => {
+const ProductItem = ({ id, image, name, price, sizes, hideCartButton }) => {
 
-//   const { currency } = useContext(ShopContext);
+  const [size, setSize] = useState(sizes ? sizes[0] : "M");
+  const [quantity, setQuantity] = useState(1);
+  const dispatch = useDispatch();
 
-//   return (
-//     <Link to={`/product/${id}`} onClick={() => window.scrollTo(0, 0)} className='text-gray-700 cursor-pointer'>
-
-//       <div className=' overflow-hidden'>
-//         <img className='hover:scale-110 transition ease-in-out' src={image[0]} alt="" />
-//       </div>
-
-//       <p className='pt-3 pb-1 text-sm'>{name}</p>
-//       <p className='text-sm font-medium'>{currency}{price}</p>
-      
-//     </Link>
-//   )
-// }
-
-// export default ProductItem
-
-
-import React, { useContext } from 'react'
-import { ShopContext } from '../context/ShopContext'
-import { Link } from 'react-router-dom';
-
-const ProductItem = ({ id, image, name, price }) => {
-  const { currency } = useContext(ShopContext);
+  const handleAddToCart = (e) => {
+    e.preventDefault();
+    console.log(`Added to cart: ${name}, Size: ${size}, Qty: ${quantity}`);
+    dispatch(addToCart({ id, size, quantity }));
+  };
 
   return (
-    <Link 
-      to={`/product/${id}`} 
-      onClick={() => window.scrollTo(0, 0)} 
-      className='text-[#1A1A1A] !important cursor-pointer block group'
-    >
-      {/* Product Image */}
-      <div className='overflow-hidden rounded-xl bg-[#fff] !important'>
-        <img 
-          className='w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out' 
-          src={image[0]} 
-          alt={name} 
-        />
-      </div>
+    <div className="!text-[#1A1A1A] cursor-pointer block group !bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+      <Link to={`/product/${id}`} onClick={() => window.scrollTo(0, 0)}>
+        <div className="overflow-hidden rounded-t-xl">
+          <img
+            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            src={image[0]}
+            alt={name}
+          />
+        </div>
+      </Link>
 
-      {/* Product Info */}
-      <div className='pt-3 pb-2'>
-        <p className='text-sm sm:text-md font-medium text-[#1A1A1A] !important tracking-wide leading-snug line-clamp-2'>
+      <div className="p-3">
+        <p className="!text-sm sm:!text-md font-medium !text-[#1A1A1A] tracking-wide line-clamp-2">
           {name}
         </p>
-        <p className='text-[13px] sm:text-[15px] font-semibold text-[#C4A484] !important tracking-wider mt-1 italic'>
-          {currency}{price}
+        <p className="!text-[13px] sm:!text-[15px] font-semibold !text-[#C4A484] tracking-wider mt-1 italic">
+          Rs.
+          {price}
         </p>
-      </div>
-    </Link>
-  )
-}
 
-export default ProductItem
+        {!hideCartButton && (
+          <div className="mt-3 space-y-2">
+            <div className="flex justify-center gap-2 flex-wrap">
+              {["S", "M", "L", "XL", "XXL", "Custom"].map((s) => (
+                <button
+                  key={s}
+                  onClick={() => setSize(s)}
+                  className={`px-3 py-1 !text-xs rounded-md border transition-all ${size === s
+                    ? "!bg-black !text-white border-black"
+                    : "!bg-white !text-gray-600 border-gray-300 hover:border-black"
+                    }`}
+                >
+                  {s}
+                </button>
+              ))}
+            </div>
+
+            <div className="flex items-center justify-center gap-3 mt-4">
+              <button
+                onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
+                className="w-7 h-7 flex items-center justify-center border border-gray-300 rounded hover:!bg-gray-100"
+              >
+                -
+              </button>
+              <span className="!text-sm font-medium">{quantity}</span>
+              <button
+                onClick={() => setQuantity((prev) => prev + 1)}
+                className="w-7 h-7 flex items-center justify-center border border-gray-300 rounded hover:!bg-gray-100"
+              >
+                +
+              </button>
+            </div>
+
+            <button
+              onClick={handleAddToCart}
+              className="w-full mt-4 py-2 !text-sm font-medium !bg-[#C4A484] !text-white rounded-md hover:!bg-[#B18C6C] transition-all duration-200"
+            >
+              Add to Cart
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+};
+
+export default ProductItem;

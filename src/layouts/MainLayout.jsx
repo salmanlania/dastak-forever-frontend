@@ -1,7 +1,7 @@
 import { Outlet } from 'react-router-dom';
 import Footer from '../components/Footer';
 import Navbar from '../components/Navbar';
-import SearchBar from '../components/SearchBar';
+// import SearchBar from '../components/SearchBar';
 import TopBar from '../components/TopBar';
 
 const MainLayout = () => {
@@ -12,8 +12,9 @@ const MainLayout = () => {
         <Navbar />
       </header>
 
-      <main className="mt-10 flex-1">
-        <SearchBar />
+      {/* <main className="mt-10 flex-1"> */}
+      <main className="flex-1">
+        {/* <SearchBar /> */}
         <div className="p-4 lg:p-8">
           <Outlet />
         </div>

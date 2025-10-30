@@ -7,7 +7,8 @@ import NotFound from '../tempComponent/NotFound';
 // Lazy loading pages
 const Home = lazy(() => import('../pages/Home'));
 const Product = lazy(() => import('../pages/Collection'));
-const ProductDetail = lazy(() => import('../pages/Product'));
+// const ProductDetail = lazy(() => import('../pages/Product'));
+import ProductDetail from '../pages/Product'
 const About = lazy(() => import('../pages/About'));
 const Contact = lazy(() => import('../pages/Contact'));
 const Cart = lazy(() => import('../pages/Cart'));
