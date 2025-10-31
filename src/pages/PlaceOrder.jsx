@@ -145,9 +145,9 @@ const PlaceOrder = () => {
 
                         <button
                             onClick={handlePlaceOrder}
-                            className="w-full !bg-black !text-white !text-sm py-3 rounded-lg mt-8 hover:!bg-opacity-90 transition"
+                            className="w-full !bg-[#C9A227] !text-[#FFFFFF] !text-sm py-3 rounded-lg mt-8 hover:!bg-[#B5835A] transition-all duration-300"
                         >
-                            PLACE ORDER
+                            Place Order
                         </button>
                     </div>
                 </div>

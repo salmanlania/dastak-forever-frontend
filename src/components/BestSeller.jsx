@@ -37,10 +37,10 @@ const BestSeller = () => {
                             className='p-4 !bg-white !important rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-[#EAEAEA] !important'
                         >
                             <ProductItem
-                                id={item._id}
-                                image={item.image}
-                                name={item.name}
-                                price={item.price}
+                                id={item?._id}
+                                image={item?.image}
+                                name={item?.name}
+                                price={item?.price}
                             />
                         </div>
                     ))

@@ -16,6 +16,7 @@ const PrivacyPolicy = lazy(() => import('../pages/PrivacyPolicy'));
 const DeliveryPolicy = lazy(() => import('../pages/DeliveryPolicy'));
 const PlaceOrder = lazy(() => import('../pages/PlaceOrder'));
 const Orders = lazy(() => import('../pages/Orders'));
+const Login = lazy(() => import('../pages/Login'));
 const ViewOrderDetails = lazy(() => import('../pages/OrderDetails'));
 
 function RoutesComponent() {
@@ -131,6 +132,14 @@ function RoutesComponent() {
           element={
             <Suspense fallback={<PageLoader />}>
               <ViewOrderDetails />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <Login />
             </Suspense>
           }
         />

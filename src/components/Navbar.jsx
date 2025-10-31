@@ -1,7 +1,8 @@
 import { useState } from 'react';
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { assets } from '../assets/assets';
+import { toggleSearch } from "../store/searchSlice";
 
 const selectCartCount = (state) => {
     let total = 0;
@@ -16,6 +17,7 @@ const selectCartCount = (state) => {
 const Navbar = () => {
     const [visible, setVisble] = useState(false)
     const navigate = useNavigate();
+    const dispatch = useDispatch();
     const cartCount = useSelector(selectCartCount);
 
     return (
@@ -42,10 +44,9 @@ const Navbar = () => {
                 </ul>
 
                 <div className='flex items-center gap-6'>
-                    {/* <img onClick={() => { setShowSearch(true); navigate('/product') }} className='w-5 cursor-pointer' src={assets.search_icon} alt="" /> */}
+                    <img onClick={() => { dispatch(toggleSearch(true)); navigate('/product') }} className='w-5 cursor-pointer' src={assets.search_icon} alt="" />
                     <Link to='/cart' className='relative'>
                         <img className='w-6 min-w-6' src={assets.cart_icon} alt="" />
-                        {/* <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 !bg-black !text-white aspect-square rounded-full text-[8px]'>{cartCount}</p> */}
                         {cartCount > 0 && (
                             <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 !bg-white !text-black font-semibold text-xs aspect-square rounded-full'>
                                 {cartCount}

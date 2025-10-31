@@ -24,7 +24,7 @@ const ViewOrderDetails = () => {
 
   return (
     <div className="min-h-screen !bg-[#F9F6F2] px-4 md:px-10 py-10">
-      
+
       <div className="flex items-center gap-3 mb-6">
         <button
           className="border border-[#C4A484] !text-[#C4A484] p-2 rounded-full hover:!bg-[#C4A484] hover:!text-white transition"
@@ -82,7 +82,7 @@ const ViewOrderDetails = () => {
           {/* <button className="flex-1 border border-[#C4A484] !text-[#C4A484] py-3 rounded-full hover:!bg-[#C4A484] hover:!text-white transition">
             Track Order
           </button> */}
-          <button onClick={()=>navigate('/contact')} className="w-1/2 flex-1 !bg-[#2C2420] !text-white py-3 rounded-full hover:!bg-black transition">
+          <button onClick={() => navigate('/contact')} className="w-1/2 flex-1 !bg-[#C9A227] !text-[#FFFFFF] py-3 rounded-full hover:!bg-[#B5835A] transition-all duration-300">
             Contact Support
           </button>
         </div>

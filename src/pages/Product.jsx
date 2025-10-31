@@ -144,10 +144,7 @@ const Product = () => {
             </div>
           </div>
 
-          <button
-           onClick={handleAddToCart}
-            className="!bg-black !text-white px-8 py-3 rounded-md !text-sm hover:!bg-gray-800 transition-all"
-          >
+          <button onClick={handleAddToCart} className='!bg-[#C9A227] !text-[#FFFFFF] px-6 py-2 font-semibold tracking-wide hover:!bg-[#B5835A] transition-all duration-300'>
             Add to Cart
           </button>
 

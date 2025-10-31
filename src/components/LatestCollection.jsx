@@ -7,7 +7,7 @@ import { useSelector } from 'react-redux';
 
 const LatestCollection = () => {
     const navigate = useNavigate()
-      const products = useSelector((state) => state.product.items || []);
+    const products = useSelector((state) => state.product.items || []);
     const [latestProducts, setLatestProducts] = useState([])
 
     useEffect(() => {
@@ -46,8 +46,8 @@ const LatestCollection = () => {
             </div>
 
             <div className='text-center mt-12'>
-                <button onClick={() => navigate('/product')} className='!bg-[#C4A484] !text-[#FFFFFF] px-8 py-3 font-semibold tracking-wide hover:!bg-[#B5835A] transition-all duration-300'>
-                    VIEW ALL COLLECTIONS
+                <button onClick={() => navigate('/product')} className='!bg-[#C9A227] !text-[#FFFFFF] px-8 py-3 font-semibold tracking-wide hover:!bg-[#B5835A] transition-all duration-300'>
+                    View All Collections
                 </button>
             </div>
 

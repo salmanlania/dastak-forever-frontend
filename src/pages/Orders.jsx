@@ -81,7 +81,7 @@ const Orders = () => {
 
                         <button
                             onClick={() => navigate(`/orders/${item._id}/${item.size}`)}
-                            className="!text-xs border border-gray-300 px-4 py-2 rounded-lg hover:!bg-gray-100 transition">
+                            className="!bg-[#C9A227] !text-[#FFFFFF] !text-xs border border-gray-300 px-4 py-2 rounded-lg hover:!bg-[#B5835A] transition-all duration-300">
                             View Details
                         </button>
                     </div>

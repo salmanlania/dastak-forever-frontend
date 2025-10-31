@@ -10,7 +10,7 @@ const Footer = () => {
     else if (path === "about") navigate("/about");
     else if (path === "return-policy") navigate("/return-policy");
     else if (path === "privacy-policy") navigate("/privacy-policy");
-    else if (path === "delivery") navigate("/delivery");
+    else if (path === "delivery") navigate("/delivery-policy");
   };
 
   return (

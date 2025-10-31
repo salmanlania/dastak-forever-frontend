@@ -1,17 +1,23 @@
 import { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import ProductItem from "../components/ProductItem";
 import useError from "../hooks/useError";
 import { supabase } from "../lib/supabaseClient";
+import { setSearch, toggleSearch } from "../store/searchSlice";
 
 const Collection = () => {
   const products = useSelector((state) => state.product.items || []);
+  const search = useSelector((state) => state.search.value);
+  const showSearch = useSelector((state) => state.search.show);
   const [filterProducts, setFilterProducts] = useState([]);
   const [sortType, setSortType] = useState("relevant");
   const [category, setCategory] = useState("All");
   const [loading, setLoading] = useState(false);
   const [items, setItems] = useState([]);
+  const [currentPage, setCurrentPage] = useState(1);
+  const [itemsPerPage, setItemsPerPage] = useState(5);
   const handleError = useError();
+  const dispatch = useDispatch();
 
   const categories = ["All", "Abayas", "Hijabs", "Niqabs", "Accessories"];
 
@@ -41,11 +47,17 @@ const Collection = () => {
       filtered = filtered.filter((item) => item.category === category);
     }
 
-    // if (showSearch && search) {
-    //   filtered = filtered.filter((item) =>
-    //     item.name.toLowerCase().includes(search.toLowerCase())
-    //   );
-    // }
+    if (showSearch && search) {
+      filtered = filtered.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
+
+    if (showSearch && search.trim() !== "") {
+      filtered = filtered.filter((item) =>
+        item.name.toLowerCase().includes(search.toLowerCase())
+      );
+    }
 
     switch (sortType) {
       case "low-high":
@@ -59,7 +71,15 @@ const Collection = () => {
     }
 
     setFilterProducts(filtered);
-  }, [category, sortType, items]);
+  }, [category, sortType, items, search, showSearch]);
+
+  const paginateProducts = (filteredProducts) => {
+    const indexOfLastItem = currentPage * itemsPerPage;
+    const indexOfFirstItem = indexOfLastItem - itemsPerPage;
+    return filteredProducts.slice(indexOfFirstItem, indexOfLastItem);
+  };
+
+  const totalPages = Math.ceil(filterProducts.length / itemsPerPage);
 
   return (
     <div className="w-full bg-[#faf9f8] min-h-screen">
@@ -91,6 +111,30 @@ const Collection = () => {
           <option value="high-low">Price: High to Low</option>
           <option value="new">Newest First</option>
         </select>
+
+        <select
+          onChange={(e) => setItemsPerPage(parseInt(e.target.value))}
+          className="ml-2 sm:ml-6 border border-gray-300 text-sm rounded-full px-4 py-2 outline-none"
+        >
+          <option value={5}>05 items per page</option>
+          <option value={10}>10 items per page</option>
+          <option value={20}>20 items per page</option>
+          <option value={30}>30 items per page</option>
+        </select>
+
+        <div className="flex items-center border border-gray-300 rounded-full px-3 py-2 w-[140px] sm:w-[180px] bg-white">
+          <input
+            type="text"
+            placeholder="Search..."
+            value={search}
+            onChange={(e) => {
+              dispatch(setSearch(e.target.value));
+              dispatch(toggleSearch(true));
+            }}
+            className="flex-1 text-sm bg-transparent outline-none"
+          />
+        </div>
+
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-8 py-10">
@@ -100,7 +144,7 @@ const Collection = () => {
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-6">
-            {filterProducts.map((item, index) => (
+            {paginateProducts(filterProducts).map((item, index) => (
               <ProductItem
                 key={index}
                 id={item._id}
@@ -112,10 +156,30 @@ const Collection = () => {
             ))}
           </div>
         )}
+
+        <div className="flex justify-center items-center py-6">
+          <button
+            onClick={() => setCurrentPage(currentPage > 1 ? currentPage - 1 : 1)}
+            className="px-4 py-2 bg-gray-200 text-gray-700 rounded-full"
+            disabled={currentPage === 1}
+          >
+            Prev
+          </button>
+
+          <span className="mx-4 text-lg">
+            {currentPage} / {totalPages}
+          </span>
+
+          <button
+            onClick={() => setCurrentPage(currentPage < totalPages ? currentPage + 1 : totalPages)}
+            className="px-4 py-2 bg-gray-200 text-gray-700 rounded-full"
+            disabled={currentPage === totalPages}
+          >
+            Next
+          </button>
+        </div>
       </div>
-
     </div>
-
   );
 };
 

@@ -12,7 +12,18 @@ const ProductItem = ({ id, image, name, price, sizes, hideCartButton }) => {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
+    const user_token = localStorage.getItem('userToken');
+
+    // if (!user_token) {
+    //   window.open(
+    //     `/login`,
+    //     '_blank',
+    //     'toolbar=yes,scrollbars=yes,top=100,left=400,width=600,height=500'
+    //   );
+    // }
+    // return
     dispatch(addToCart({ id, size, quantity }));
+
   };
 
   return (
@@ -71,7 +82,7 @@ const ProductItem = ({ id, image, name, price, sizes, hideCartButton }) => {
 
             <button
               onClick={handleAddToCart}
-              className="w-full mt-4 py-2 !text-sm font-medium !bg-[#C4A484] !text-white rounded-md hover:!bg-[#B18C6C] transition-all duration-200"
+              className="w-full mt-4 py-2 !text-sm font-medium !bg-[#C9A227] !text-[#FFFFFF] rounded-md hover:!bg-[#B5835A] transition-all duration-300"
             >
               Add to Cart
             </button>

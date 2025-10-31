@@ -1,9 +1,10 @@
-import React from "react";
 
 const PrivacyPolicy = () => {
   return (
-    <section className="min-h-screen bg-white text-gray-800 flex items-center justify-center px-6 py-20">
-      <div className="max-w-3xl w-full">
+    <section className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#faf7f4] via-[#fff] to-[#f5efe9] text-gray-800 px-6 py-16">
+      <div className="absolute inset-0 bg-white/90 backdrop-blur-sm"></div>
+
+      <div className="relative max-w-3xl w-full z-10">
         <h1 className="text-3xl md:text-4xl font-semibold text-center text-black mb-4 tracking-wide">
           Dasthakat Privacy Policy
         </h1>
@@ -11,7 +12,7 @@ const PrivacyPolicy = () => {
           Effective from October 2025
         </p>
 
-        <div className="bg-[#fdfdfd] rounded-2xl shadow-md p-6 md:p-10 space-y-8 border border-gray-200">
+        <div className="bg-[#fefcfb] rounded-2xl shadow-lg p-6 md:p-10 space-y-8 border border-gray-200 transition-all duration-300 hover:shadow-xl">
           <div>
             <h2 className="text-2xl font-semibold text-[#C19A6B] mb-2">
               Introduction
@@ -19,7 +20,7 @@ const PrivacyPolicy = () => {
             <p className="text-gray-700 leading-relaxed">
               At <strong>Dasthakat</strong>, we value your privacy and are committed to
               protecting your personal information. This Privacy Policy explains
-              how we collect, use, and protect your data when you visit our
+              how we collect, use, and safeguard your data when you visit our
               website or make a purchase.
             </p>
           </div>
@@ -29,10 +30,10 @@ const PrivacyPolicy = () => {
               Information We Collect
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              We collect personal details you provide such as your name, email,
+              We collect personal details you provide, such as your name, email,
               phone number, shipping address, and payment information. We may
-              also collect data automatically through cookies and analytics tools
-              to improve your experience on our site.
+              also use cookies and analytics tools to improve your shopping
+              experience and our website performance.
             </p>
           </div>
 
@@ -41,10 +42,9 @@ const PrivacyPolicy = () => {
               How We Use Your Information
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              We use your information to process orders, provide customer support,
-              improve our products, and send updates or promotions (only if you’ve
-              opted in). We never sell or share your data with third parties for
-              marketing purposes.
+              Your information helps us process orders, provide customer support,
+              enhance our collections, and share updates or offers (only with your
+              consent). We never sell or share your data for marketing purposes.
             </p>
           </div>
 
@@ -53,9 +53,9 @@ const PrivacyPolicy = () => {
               Data Security
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              Your data is stored securely and protected using modern encryption
-              and authentication techniques. Only authorized personnel have access
-              to your information to ensure your privacy.
+              We use modern encryption and authentication measures to protect your
+              data. Access is limited to authorized personnel only, ensuring your
+              personal information remains confidential and secure.
             </p>
           </div>
 
@@ -64,9 +64,9 @@ const PrivacyPolicy = () => {
               Cookies & Tracking
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              We use cookies to enhance user experience, analyze traffic, and
-              improve site performance. You can disable cookies in your browser
-              settings if you prefer not to share this data.
+              Our site uses cookies to personalize your experience and analyze site
+              traffic. You may disable cookies anytime in your browser settings,
+              though some site functions may be limited.
             </p>
           </div>
 
@@ -75,14 +75,15 @@ const PrivacyPolicy = () => {
               Contact Us
             </h3>
             <p className="text-gray-700 leading-relaxed">
-              If you have any questions about our Privacy Policy, please contact
-              us at{" "}
+              For any questions or concerns regarding this policy, please reach out
+              to us at{" "}
               <a
                 href="mailto:support@dasthakat.com"
                 className="text-[#C19A6B] underline hover:text-[#a17d55] transition-colors"
               >
                 support@dasthakat.com
               </a>
+              .
             </p>
           </div>
         </div>
