@@ -30,6 +30,8 @@ const Cart = () => {
     setCartData(tempData);
   }, [cartItems]);
 
+  console.log('cartItems', cartItems)
+
   const handleQuantityChange = (id, size, value) => {
     if (!value || value < 1) return;
     dispatch(updateQuantity({ id, size, quantity: Number(value) }));
@@ -55,6 +57,7 @@ const Cart = () => {
 
           {cartData.map((item, index) => {
             const productData = products.find((p) => p._id === item._id);
+            console.log('productData' , productData)
             if (!productData) return null;
 
             return (
@@ -105,6 +108,7 @@ const Cart = () => {
         <div className="!bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-sm h-fit">
           <CartTotal />
           <button
+            disabled={cartData.length <= 0}
             onClick={() => navigate("/place-order")}
             className="!bg-[#C9A227] !text-[#FFFFFF] !text-sm w-full py-3 mt-6 rounded-lg tracking-wide hover:!bg-[#B5835A] transition-all duration-300"
           >

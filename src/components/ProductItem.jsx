@@ -27,30 +27,32 @@ const ProductItem = ({ id, image, name, price, sizes, hideCartButton }) => {
   };
 
   return (
-    <div className="!text-[#1A1A1A] cursor-pointer block group !bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100">
+    <div className="!text-[#1A1A1A] cursor-pointer block group !bg-white rounded-xl shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 h-full flex flex-col">
       <Link to={`/product/${id}`} onClick={() => window.scrollTo(0, 0)}>
         <div className="overflow-hidden rounded-t-xl">
           <img
-            className="w-full h-auto object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
+            className="w-full aspect-[3/4] object-cover group-hover:scale-105 transition-transform duration-500 ease-in-out"
             src={image[0]}
             alt={name}
           />
         </div>
       </Link>
 
-      <div className="p-3">
-        <p className="!text-sm sm:!text-md font-medium !text-[#1A1A1A] tracking-wide line-clamp-2">
-          {name}
-        </p>
-        <p className="!text-[13px] sm:!text-[15px] font-semibold !text-[#C4A484] tracking-wider mt-1 italic">
-          Rs.
-          {price}
-        </p>
+      <div className="p-4 flex flex-col justify-between flex-grow">
+        <div>
+          <p className="!text-sm sm:!text-md font-medium !text-[#1A1A1A]">
+            {name}
+          </p>
+          <p className="!text-[13px] sm:!text-[15px] font-semibold !text-[#C4A484] tracking-wider mt-1 italic">
+            Rs.
+            {price}
+          </p>
+        </div>
 
         {!hideCartButton && (
-          <div className="mt-3 space-y-2">
+          <div className="mt-3 space-y-2 flex flex-col items-center">
             <div className="flex justify-center gap-2 flex-wrap">
-              {["S", "M", "L", "XL", "XXL", "Custom"].map((s) => (
+              {["S", "M", "L", "XL", "XXL", "CUS"].map((s) => (
                 <button
                   key={s}
                   onClick={() => setSize(s)}
@@ -64,7 +66,7 @@ const ProductItem = ({ id, image, name, price, sizes, hideCartButton }) => {
               ))}
             </div>
 
-            <div className="flex items-center justify-center gap-3 mt-4">
+            <div className="flex items-center justify-center gap-2 mt-4">
               <button
                 onClick={() => setQuantity((prev) => Math.max(1, prev - 1))}
                 className="w-7 h-7 flex items-center justify-center border border-gray-300 rounded hover:!bg-gray-100"

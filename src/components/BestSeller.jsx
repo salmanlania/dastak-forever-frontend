@@ -28,13 +28,13 @@ const BestSeller = () => {
             </div>
 
             <div
-                className='grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-6'
+                className='grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6'
             >
                 {
-                    bestSeller.map((item, index) => (
+                    bestSeller.slice(0, 4).map((item, index) => (
                         <div
                             key={index}
-                            className='p-4 !bg-white !important rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-[#EAEAEA] !important'
+                            className='!bg-white !important rounded-xl shadow-md hover:shadow-lg transition-all duration-300 border border-[#EAEAEA] !important'
                         >
                             <ProductItem
                                 id={item?._id}

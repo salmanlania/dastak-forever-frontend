@@ -157,27 +157,29 @@ const Collection = () => {
           </div>
         )}
 
-        <div className="flex justify-center items-center py-6">
-          <button
-            onClick={() => setCurrentPage(currentPage > 1 ? currentPage - 1 : 1)}
-            className="px-4 py-2 bg-gray-200 text-gray-700 rounded-full"
-            disabled={currentPage === 1}
-          >
-            Prev
-          </button>
+        {filterProducts.length > 0 ? (
+          <div className="flex justify-center items-center py-6">
+            <button
+              onClick={() => setCurrentPage(currentPage > 1 ? currentPage - 1 : 1)}
+              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-full"
+              disabled={currentPage === 1}
+            >
+              Prev
+            </button>
 
-          <span className="mx-4 text-lg">
-            {currentPage} / {totalPages}
-          </span>
+            <span className="mx-4 text-lg">
+              {currentPage} / {totalPages}
+            </span>
 
-          <button
-            onClick={() => setCurrentPage(currentPage < totalPages ? currentPage + 1 : totalPages)}
-            className="px-4 py-2 bg-gray-200 text-gray-700 rounded-full"
-            disabled={currentPage === totalPages}
-          >
-            Next
-          </button>
-        </div>
+            <button
+              onClick={() => setCurrentPage(currentPage < totalPages ? currentPage + 1 : totalPages)}
+              className="px-4 py-2 bg-gray-200 text-gray-700 rounded-full"
+              disabled={currentPage === totalPages}
+            >
+              Next
+            </button>
+          </div>
+        ) : null}
       </div>
     </div>
   );
