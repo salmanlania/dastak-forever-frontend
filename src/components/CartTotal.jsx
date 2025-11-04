@@ -5,7 +5,7 @@ const CartTotal = () => {
   const cartItems = useSelector((state) => state.cart.items);
   const products = useSelector((state) => state.product.items);
   const currency = "Rs.";
-  const delivery_fee = 200;
+  // const delivery_fee = 200;
 
   const subtotal = Object.keys(cartItems).reduce((acc, id) => {
     const product = products.find((p) => p._id === id);
@@ -19,7 +19,7 @@ const CartTotal = () => {
     return acc + totalForProduct;
   }, 0);
 
-  const total = subtotal + delivery_fee;
+  const total = subtotal // + delivery_fee;
 
   return (
     <div className="w-full">
@@ -33,8 +33,8 @@ const CartTotal = () => {
         </div>
         <hr />
         <div className="flex justify-between">
-          <p>Shipping Fee</p>
-          <p>{currency} {delivery_fee}</p>
+          <p>Discount</p>
+          <p>{currency} {0}</p>
         </div>
         <hr />
         <div className="flex justify-between">
