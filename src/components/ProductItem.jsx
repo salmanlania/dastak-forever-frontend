@@ -12,19 +12,19 @@ const ProductItem = ({ id, image, name, price, sizes, hideCartButton }) => {
 
   const handleAddToCart = (e) => {
     e.preventDefault();
-    const user_token = localStorage.getItem('userToken');
+    // const user_token = localStorage.getItem('userToken');
 
-    if (!user_token) {
-      window.open(
-        `/login`,
-        '_blank',
-        'toolbar=yes,scrollbars=yes,top=100,left=400,width=600,height=500'
-      );
-    }else {
-      dispatch(addToCart({ id, size, quantity }));
-    }
-    // return
-
+    // if (!user_token) {
+    //   window.open(
+    //     `/login`,
+    //     '_blank',
+    //     'toolbar=yes,scrollbars=yes,top=100,left=400,width=600,height=500'
+    //   );
+    // }else {
+    //   dispatch(addToCart({ id, size, quantity }));
+    // }
+    dispatch(addToCart({ id, size, quantity }));
+    return
   };
 
   return (
