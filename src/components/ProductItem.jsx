@@ -6,7 +6,7 @@ import { addToCart } from "../store/cartSlice";
 
 const ProductItem = ({ id, image, name, price, sizes, hideCartButton }) => {
 
-  const [size, setSize] = useState(sizes ? sizes[0] : "M");
+  const [size, setSize] = useState(sizes ? sizes[0] : "S");
   const [quantity, setQuantity] = useState(1);
   const dispatch = useDispatch();
 
@@ -14,15 +14,16 @@ const ProductItem = ({ id, image, name, price, sizes, hideCartButton }) => {
     e.preventDefault();
     const user_token = localStorage.getItem('userToken');
 
-    // if (!user_token) {
-    //   window.open(
-    //     `/login`,
-    //     '_blank',
-    //     'toolbar=yes,scrollbars=yes,top=100,left=400,width=600,height=500'
-    //   );
-    // }
+    if (!user_token) {
+      window.open(
+        `/login`,
+        '_blank',
+        'toolbar=yes,scrollbars=yes,top=100,left=400,width=600,height=500'
+      );
+    }else {
+      dispatch(addToCart({ id, size, quantity }));
+    }
     // return
-    dispatch(addToCart({ id, size, quantity }));
 
   };
 

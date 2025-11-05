@@ -58,7 +58,7 @@ export const products = [
         image: [p_img2_1, p_img2_1, p_img2_2, p_img2_3, p_img2_3, p_img2_1, p_img2_2, p_img2_3, p_img2_3, p_img2_1, p_img2_2, p_img2_3, p_img2_3, p_img2_1, p_img2_2, p_img2_3,],
         category: "Abayas",
         subCategory: "Casual Abayas",
-        sizes: ["M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716622345448,
         bestseller: true
     },
@@ -71,7 +71,7 @@ export const products = [
         image: [p_img2_1, p_img2_2, p_img2_3, p_img2_4],
         category: "Abayas",
         subCategory: "Signature Abayas",
-        sizes: ["M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716621345448,
         bestseller: true
     },
@@ -84,7 +84,7 @@ export const products = [
         image: [p_img2_1],
         category: "Stroller Scarves",
         subCategory: "Premium Strollers",
-        sizes: ["S", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716234545448,
         bestseller: true
     },
@@ -97,7 +97,7 @@ export const products = [
         image: [p_img2_1],
         category: "Stroller Scarves",
         subCategory: "Printed Strollers",
-        sizes: ["S", "M", "XXL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716621345448,
         bestseller: true
     },
@@ -110,7 +110,7 @@ export const products = [
         image: [p_img2_1],
         category: "Modest Wraps",
         subCategory: "Statement Wraps",
-        sizes: ["S", "M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716632145448,
         bestseller: true
     },
@@ -123,7 +123,7 @@ export const products = [
         image: [p_img2_1],
         category: "Abayas",
         subCategory: "Casual Abayas",
-        sizes: ["M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716622345448,
         bestseller: true
     },
@@ -136,7 +136,7 @@ export const products = [
         image: [p_img2_1, p_img2_2, p_img2_3, p_img2_4],
         category: "Abayas",
         subCategory: "Signature Abayas",
-        sizes: ["M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716621345448,
         bestseller: true
     },
@@ -149,7 +149,7 @@ export const products = [
         image: [p_img2_1],
         category: "Stroller Scarves",
         subCategory: "Premium Strollers",
-        sizes: ["S", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716234545448,
         bestseller: true
     },
@@ -162,7 +162,7 @@ export const products = [
         image: [p_img2_1],
         category: "Stroller Scarves",
         subCategory: "Printed Strollers",
-        sizes: ["S", "M", "XXL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716621345448,
         bestseller: true
     },
@@ -175,7 +175,7 @@ export const products = [
         image: [p_img2_1],
         category: "Modest Wraps",
         subCategory: "Statement Wraps",
-        sizes: ["S", "M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716632145448,
         bestseller: true
     },
@@ -188,7 +188,7 @@ export const products = [
         image: [p_img2_1],
         category: "Abayas",
         subCategory: "Casual Abayas",
-        sizes: ["M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716622345448,
         bestseller: true
     },
@@ -201,7 +201,7 @@ export const products = [
         image: [p_img2_1, p_img2_2, p_img2_3, p_img2_4],
         category: "Abayas",
         subCategory: "Signature Abayas",
-        sizes: ["M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716621345448,
         bestseller: true
     },
@@ -214,7 +214,7 @@ export const products = [
         image: [p_img2_1],
         category: "Abayas",
         subCategory: "Casual Abayas",
-        sizes: ["S", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716234545448,
         bestseller: true
     },
@@ -227,7 +227,7 @@ export const products = [
         image: [p_img2_1],
         category: "Stroller Scarves",
         subCategory: "Printed Strollers",
-        sizes: ["S", "M", "XXL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716621345448,
         bestseller: true
     },
@@ -240,7 +240,7 @@ export const products = [
         image: [p_img2_1],
         category: "Modest Wraps",
         subCategory: "Statement Wraps",
-        sizes: ["S", "M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716632145448,
         bestseller: true
     },
@@ -253,7 +253,7 @@ export const products = [
         image: [p_img2_1],
         category: "Abayas",
         subCategory: "Casual Abayas",
-        sizes: ["S", "M", "L", "XL"],
+        sizes: ["S", "M", "L", "XL", "XXL", "CUS"],
         date: 1716632145448,
         bestseller: true
     },

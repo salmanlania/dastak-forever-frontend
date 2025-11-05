@@ -44,18 +44,18 @@ const Collection = () => {
     let filtered = items;
 
     if (category !== "All") {
-      filtered = filtered.filter((item) => item.category === category);
+      filtered = filtered.filter((item) => item?.category === category);
     }
 
     if (showSearch && search) {
       filtered = filtered.filter((item) =>
-        item.name.toLowerCase().includes(search.toLowerCase())
+        item?.name.toLowerCase().includes(search.toLowerCase())
       );
     }
 
     if (showSearch && search.trim() !== "") {
       filtered = filtered.filter((item) =>
-        item.name.toLowerCase().includes(search.toLowerCase())
+        item?.name.toLowerCase().includes(search.toLowerCase())
       );
     }
 
@@ -147,10 +147,11 @@ const Collection = () => {
             {paginateProducts(filterProducts).map((item, index) => (
               <ProductItem
                 key={index}
-                id={item._id}
-                image={item.image}
-                name={item.name}
-                price={item.price}
+                id={item?._id}
+                image={item?.image}
+                name={item?.name}
+                price={item?.price}
+                sizes={item?.sizes}
                 className="group relative overflow-hidden rounded-2xl bg-white shadow-sm hover:shadow-md transition-all duration-300"
               />
             ))}

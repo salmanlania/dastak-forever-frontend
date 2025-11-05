@@ -17,13 +17,20 @@ export const loginUser = createAsyncThunk(
                     password,
                     options: { data: { full_name: fullName } },
                 });
+
+                console.log('isSignUp response' , response)
             } else {
                 response = await supabase.auth.signInWithPassword({ email, password });
             }
 
-            if (response.error) throw response.error;
+            if (response?.error){
+                console.log('response.error' , response.error)
+                throw response.error
+            } ;
 
             const { user, session } = response.data;
+            console.log('user' , user)
+            console.log('session' , session)
 
             const customerData = {
                 customer_id: user.id,
