@@ -85,3 +85,52 @@ export const products = [
 
 created_at, category_id, details, id, price, discount_percent, tax_percent, name, sku, images
 
+create table products (
+  id uuid default uuid_generate_v4() primary key,
+  created_at timestamp default now(),
+  name text not null,
+  description text,
+  price numeric not null,
+  image_urls text[],
+  category text,
+  sub_category text,
+  sizes text[],
+  bestseller boolean default false,
+  date bigint,
+  stock_quantity int default 0,
+  quantity int default 0,
+  rating numeric default 0,
+  total_sales int default 0,
+  status text default 'active',
+);
+
+add
+product_id
+customer_id
+order_id
+Brand
+net_cost_price
+tax_price
+net_sale_price
+other_expense
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

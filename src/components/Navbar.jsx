@@ -1,19 +1,29 @@
-import React, { useContext, useState } from 'react'
-import { assets } from '../assets/assets'
-import { Link, NavLink } from 'react-router-dom'
-import { ShopContext } from '../context/ShopContext'
+import { useState } from 'react';
+import { useDispatch, useSelector } from "react-redux";
+import { Link, NavLink, useNavigate } from 'react-router-dom';
+import { assets } from '../assets/assets';
+import { toggleSearch } from "../store/searchSlice";
+
+const selectCartCount = (state) => {
+    let total = 0;
+    for (const id in state.cart.items) {
+        for (const size in state.cart.items[id]) {
+            total += state.cart.items[id][size];
+        }
+    }
+    return total;
+};
 
 const Navbar = () => {
-
     const [visible, setVisble] = useState(false)
-
-    const { setShowSearch, navigate, getCartCount } = useContext(ShopContext);
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const cartCount = useSelector(selectCartCount);
 
     return (
         <>
-            <div className='flex items-center justify-between py-5 font-medium'>
+            <div className='flex items-center justify-between py-6 font-medium'>
                 <Link to='/'><img className='w-[12rem]' src={assets.logo} alt="" /></Link>
-
                 <ul className='hidden sm:flex gap-5 text-sm text-gray-700'>
                     <NavLink to="/" className='flex flex-col items-center gap-1'>
                         <p>HOME</p>
@@ -34,16 +44,19 @@ const Navbar = () => {
                 </ul>
 
                 <div className='flex items-center gap-6'>
-                    <img onClick={() => { setShowSearch(true); navigate('/product') }} className='w-5 cursor-pointer' src={assets.search_icon} alt="" />
+                    <img onClick={() => { dispatch(toggleSearch(true)); navigate('/product') }} className='w-5 cursor-pointer' src={assets.search_icon} alt="" />
                     <Link to='/cart' className='relative'>
-                        <img className='w-5 min-w-5' src={assets.cart_icon} alt="" />
-                        <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 bg-black text-white aspect-square rounded-full text-[8px]'>{getCartCount()}</p>
+                        <img className='w-6 min-w-6' src={assets.cart_icon} alt="" />
+                        {cartCount > 0 && (
+                            <p className='absolute right-[-5px] bottom-[-5px] w-4 text-center leading-4 !bg-white !text-black font-semibold text-xs aspect-square rounded-full'>
+                                {cartCount}
+                            </p>
+                        )}
                     </Link>
                     <img onClick={() => setVisble(true)} className='w-5 cursor-pointer sm:hidden' src={assets.menu_icon} alt="" />
                 </div>
 
-                {/* Sidebar Menu For Small Screens */}
-                <div className={`absolute top-0 right-0 bottom-0 overflow-hidden bg-white transition-all ${visible ? 'w-full' : 'w-0'}`} >
+                <div className={`absolute top-0 right-0 bottom-0 z-[1000] overflow-hidden bg-white transition-all ${visible ? 'w-full' : 'w-0'}`} >
                     <div className='flex flex-col text-gray-600'>
                         <div onClick={() => setVisble(false)} className='flex items-center gap-4 p-3 '>
                             <img className='h-4 rotate-180' src={assets.dropdown_icon} alt="" />

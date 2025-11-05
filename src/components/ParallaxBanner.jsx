@@ -8,14 +8,11 @@ const ParallaxBanner = () => {
     <div
       className="relative h-[400px] sm:h-[900px] !bg-fixed !bg-center !bg-cover flex items-center justify-center"
       style={{
-        // backgroundImage: assets.hero_img
         backgroundImage: `url(${assets.hero_img})`
       }}
     >
-      {/* Overlay */}
       <div className="absolute inset-0 !bg-black/40"></div>
 
-      {/* Text Content */}
       <div className="relative text-center !text-white z-10 px-4">
         <h2 className="text-2xl sm:text-4xl font-bold mb-4">
           FASHIONABLE AND TRENDY CLOTHES FOR YOU

@@ -4,10 +4,10 @@ import PageLoader from '../components/LoadingSpinners/PageLoader';
 import MainLayout from '../layouts/MainLayout';
 import NotFound from '../tempComponent/NotFound';
 
-// Lazy loading pages
 const Home = lazy(() => import('../pages/Home'));
 const Product = lazy(() => import('../pages/Collection'));
-const ProductDetail = lazy(() => import('../pages/Product'));
+// const ProductDetail = lazy(() => import('../pages/Product'));
+import ProductDetail from '../pages/Product'
 const About = lazy(() => import('../pages/About'));
 const Contact = lazy(() => import('../pages/Contact'));
 const Cart = lazy(() => import('../pages/Cart'));
@@ -16,6 +16,8 @@ const PrivacyPolicy = lazy(() => import('../pages/PrivacyPolicy'));
 const DeliveryPolicy = lazy(() => import('../pages/DeliveryPolicy'));
 const PlaceOrder = lazy(() => import('../pages/PlaceOrder'));
 const Orders = lazy(() => import('../pages/Orders'));
+const Login = lazy(() => import('../pages/Login'));
+const ViewOrderDetails = lazy(() => import('../pages/OrderDetails'));
 
 function RoutesComponent() {
   return (
@@ -122,6 +124,22 @@ function RoutesComponent() {
           element={
             <Suspense fallback={<PageLoader />}>
               <Orders />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/orders/:id/:size"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <ViewOrderDetails />
+            </Suspense>
+          }
+        />
+        <Route
+          path="/login"
+          element={
+            <Suspense fallback={<PageLoader />}>
+              <Login />
             </Suspense>
           }
         />

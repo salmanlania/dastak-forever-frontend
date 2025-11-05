@@ -86,7 +86,6 @@ const ComingSoon = () => {
                         <div
                             key={unit}
                             className="bg-white shadow-md rounded-lg p-4 min-w-[72px] flex-shrink-0 w-20 h-24 flex flex-col justify-center items-center"
-                        // className="bg-white shadow-md rounded-lg p-4 w-24 h-24 flex flex-col justify-center items-center"
                         >
                             <div className="text-3xl font-bold text-gray-800 font-mono">
                                 {String(value).padStart(2, '0')}
