@@ -17,8 +17,8 @@ const ParallaxBanner = () => {
         <h2 className="text-2xl sm:text-4xl font-bold mb-4">
           FASHIONABLE AND TRENDY CLOTHES FOR YOU
         </h2>
-        <button onClick={() => navigate('/products')} className="!bg-[#C9A227] !hover:bg-[#b08e20] text-white px-6 py-3 text-sm sm:text-base rounded-full transition-all duration-300">
-          SHOP NOW
+        <button onClick={() => navigate('/products')} className="!bg-[#C9A227] hover:!bg-[#B5835A] transition-all duration-300 text-white px-6 py-3 text-sm sm:text-base rounded-full transition-all duration-300">
+          Shop Now
         </button>
       </div>
     </div>

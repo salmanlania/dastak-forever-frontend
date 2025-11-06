@@ -69,7 +69,7 @@ const ViewOrderDetails = () => {
 
             <span className="mt-2 inline-flex items-center gap-2 !bg-green-50 !text-green-600 font-medium px-4 py-1 rounded-full border border-green-200 !text-sm w-fit">
               <span className="w-2 h-2 !bg-green-500 rounded-full"></span>
-              Ready to Ship
+              To be confirmed
             </span>
 
             <div className="!text-lg font-semibold !text-[#2C2420] mt-4">
