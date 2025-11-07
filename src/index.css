@@ -90,3 +90,24 @@ a.active hr {
     transform: rotate(360deg);
   }
 }
+
+/* === Dastakhat Warm Shimmer Animation === */
+@keyframes shimmer {
+  0% {
+    background-position: -1000px 0;
+  }
+  100% {
+    background-position: 1000px 0;
+  }
+}
+
+.skeleton {
+  background: linear-gradient(
+    90deg,
+    #f6f4f0 25%,
+    #ede7dc 37%,
+    #f6f4f0 63%
+  );
+  background-size: 1000px 100%;
+  animation: shimmer 1.5s infinite linear forwards;
+}

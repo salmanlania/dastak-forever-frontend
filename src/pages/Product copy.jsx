@@ -10,22 +10,20 @@ import { addToCart } from "../store/cartSlice";
 const Product = () => {
   const { productId } = useParams();
   const products = useSelector((state) => state.product.items || []);
+  const currency = "Rs."
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
-  const [productData, setProductData] = useState(null);
+  const [productData, setProductData] = useState(false);
   const [size, setSize] = useState('');
   const [image, setImage] = useState('');
   const [startIndex, setStartIndex] = useState(0);
-  const [loading, setLoading] = useState(true);
-  const currency = "Rs.";
+  const navigate = useNavigate();
 
   useEffect(() => {
     const product = products.find((item) => item._id === productId);
     if (product) {
       setProductData(product);
       setImage(product.image[0]);
-      setTimeout(() => setLoading(false), 600); // Simulate shimmer load
     }
   }, [products, productId]);
 
@@ -49,42 +47,18 @@ const Product = () => {
     dispatch(addToCart({ id: productData._id, size, quantity: 1 }));
   };
 
-  if (loading || !productData) {
-    return (
-      <div className="animate-pulse p-6 space-y-6">
-        <div className="h-8 w-32 !bg-gray-200 rounded"></div>
-        <div className="flex flex-col lg:flex-row gap-10">
-          <div className="flex-1 space-y-4">
-            <div className="w-full h-[500px] !bg-gray-200 rounded"></div>
-            <div className="flex gap-2 justify-center">
-              {[...Array(4)].map((_, i) => (
-                <div key={i} className="w-24 h-24 !bg-gray-200 rounded"></div>
-              ))}
-            </div>
-          </div>
-          <div className="flex-1 space-y-4">
-            <div className="h-8 w-1/2 !bg-gray-200 rounded"></div>
-            <div className="h-6 w-1/4 !bg-gray-200 rounded"></div>
-            <div className="h-20 w-full !bg-gray-200 rounded"></div>
-            <div className="h-10 w-32 !bg-gray-200 rounded"></div>
-          </div>
-        </div>
-      </div>
-    );
-  }
+  if (!productData) return <div className="opacity-0"></div>;
 
-  return (
-    <div className="border-t pt-10">
-      {/* Back Button */}
+  return productData ? (
+    <div className="border-t pt-10 transition-opacity duration-500 opacity-100">
       <button
-        onClick={() => navigate(-1)}
-        className="mb-6 flex items-center gap-1 !text-gray-700 hover:!text-black sticky top-2 !bg-white/80 backdrop-blur-md border px-3 py-2 rounded-full shadow-sm z-10"
+        onClick={() => navigate('/products')}
+        className="mb-4 flex items-center gap-1 !text-gray-700 hover:!text-black !bg-white shadow-sm border rounded-full px-3 py-2 transition-all duration-200 hover:shadow-md"
       >
         <HiArrowLeft className="!text-lg" /> Back
       </button>
 
       <div className="flex flex-col lg:flex-row gap-12">
-        {/* Product Images */}
         <div className="flex-1 flex flex-col items-center">
           <div className="w-full max-w-[600px] border rounded-lg overflow-hidden !bg-gray-50">
             <img
@@ -97,12 +71,7 @@ const Product = () => {
           <div className="relative mt-4 w-full max-w-[600px]">
             <button
               onClick={handlePrev}
-              disabled={startIndex === 0}
-              className={`absolute left-0 top-1/2 -translate-y-1/2 border rounded-full p-1 shadow-md transition ${
-                startIndex === 0
-                  ? 'opacity-30 cursor-not-allowed'
-                  : 'hover:!bg-gray-100 !bg-white'
-              }`}
+              className="absolute left-0 top-1/2 -translate-y-1/2 !bg-white border rounded-full p-1 shadow-md hover:!bg-gray-100"
             >
               <IoChevronBack className="!text-lg" />
             </button>
@@ -116,30 +85,23 @@ const Product = () => {
                     onClick={() => setImage(item)}
                     src={item}
                     alt=""
-                    className={`w-24 h-24 object-cover rounded-md cursor-pointer border ${
-                      image === item
-                        ? 'border-black'
-                        : 'border-gray-200 hover:border-black'
-                    } transition-all`}
+                    className={`w-24 h-24 object-cover rounded-md cursor-pointer border ${image === item
+                      ? 'border-black'
+                      : 'border-gray-200 hover:border-black'
+                      } transition-all`}
                   />
                 ))}
             </div>
 
             <button
               onClick={handleNext}
-              disabled={startIndex + 4 >= productData.image.length}
-              className={`absolute right-0 top-1/2 -translate-y-1/2 border rounded-full p-1 shadow-md transition ${
-                startIndex + 4 >= productData.image.length
-                  ? 'opacity-30 cursor-not-allowed'
-                  : 'hover:!bg-gray-100 !bg-white'
-              }`}
+              className="absolute right-0 top-1/2 -translate-y-1/2 !bg-white border rounded-full p-1 shadow-md hover:!bg-gray-100"
             >
               <IoChevronForward className="!text-lg" />
             </button>
           </div>
         </div>
 
-        {/* Product Info */}
         <div className="flex-1">
           <h1 className="font-semibold !text-3xl mb-3">{productData.name}</h1>
 
@@ -160,50 +122,41 @@ const Product = () => {
             {productData.price}
           </p>
 
-          <p className="!text-gray-600 mb-6 leading-relaxed max-w-lg md:max-w-none">
+          <p className="!text-gray-600 mb-6 leading-relaxed md:w-4/5">
             {productData.shortDesc || "A beautifully designed abaya for all occasions."}
           </p>
 
           <div className="my-6">
             <p className="font-medium mb-2">Select Size</p>
-            {productData.sizes?.length > 0 ? (
-              <div className="flex gap-2 flex-wrap">
-                {productData.sizes.map((item, index) => (
-                  <button
-                    key={index}
-                    onClick={() => setSize(item)}
-                    className={`border py-2 px-4 rounded-md ${
-                      size === item
-                        ? 'border-black !bg-black !text-white'
-                        : '!bg-gray-100 hover:!bg-gray-200'
+            <div className="flex gap-2 flex-wrap">
+              {productData.sizes.map((item, index) => (
+                <button
+                  key={index}
+                  onClick={() => setSize(item)}
+                  className={`border py-2 px-4 rounded-md ${size === item
+                    ? 'border-black !bg-black !text-white'
+                    : '!bg-gray-100 hover:!bg-gray-200'
                     }`}
-                  >
-                    {item}
-                  </button>
-                ))}
-              </div>
-            ) : (
-              <p className="!text-gray-500 !text-sm">Currently out of stock</p>
-            )}
+                >
+                  {item}
+                </button>
+              ))}
+            </div>
           </div>
 
-          <button
-            onClick={handleAddToCart}
-            className="!bg-[#C9A227] !text-white px-6 py-2 font-semibold tracking-wide hover:!bg-[#B5835A] transition-all duration-300"
-          >
+          <button onClick={handleAddToCart} className='!bg-[#C9A227] !text-[#FFFFFF] px-6 py-2 font-semibold tracking-wide hover:!bg-[#B5835A] transition-all duration-300'>
             Add to Cart
           </button>
 
           <hr className="my-8 w-4/5" />
 
           <ul className="!text-sm !text-gray-600 space-y-1">
-            <li>✅ 100% Authentic product</li>
+            <li>✅ 100% Original product</li>
             <li>🚚 Cash on delivery available</li>
           </ul>
         </div>
       </div>
 
-      {/* Fabric & Care */}
       <div className="mt-20">
         <div className="flex border-b">
           <b className="px-5 py-3 !text-sm border-t border-l border-r !bg-gray-100">
@@ -220,7 +173,6 @@ const Product = () => {
         </div>
       </div>
 
-      {/* Size & Fit */}
       <div className="mt-10">
         <div className="flex border-b">
           <b className="px-5 py-3 !text-sm border-t border-l border-r !bg-gray-100">
@@ -236,27 +188,13 @@ const Product = () => {
         </div>
       </div>
 
-      {/* Shipping & Returns */}
-      <div className="mt-10">
-        <div className="flex border-b">
-          <b className="px-5 py-3 !text-sm border-t border-l border-r !bg-gray-100">
-            Shipping & Returns
-          </b>
-        </div>
-        <div className="border p-6 !text-sm !text-gray-600 leading-relaxed">
-          <ul className="list-disc pl-5 space-y-2">
-            <li>Free shipping on orders over Rs. 5,000</li>
-            <li>Delivery within 3–5 working days nationwide</li>
-            <li><strong>No return policy.</strong> Please review your order carefully before purchase.</li>
-          </ul>
-        </div>
-      </div>
-
       <RelatedProducts
         category={productData.category}
         subCategory={productData.subCategory}
       />
     </div>
+  ) : (
+    <div className="opacity-0"></div>
   );
 };
 

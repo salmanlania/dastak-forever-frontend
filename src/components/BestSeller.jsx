@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
 import ProductItem from './ProductItem';
 import Title from './Title';
+import SkeletonCard from "./SkeletonCard";
 
 const BestSeller = () => {
     const products = useSelector((state) => state.product.items || []);

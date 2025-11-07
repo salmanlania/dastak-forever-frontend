@@ -66,7 +66,7 @@ export const products = [
     {
         _id: uuidv4(),
         created_at: new Date().toISOString().split('T')[0],
-        name: "Men Round Neck Pure Cotton T-shirt",
+        name: "Abaya Signature Abayas",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 200,
         image: [p_img2_1, p_img2_2, p_img2_3, p_img2_4],
@@ -131,7 +131,7 @@ export const products = [
     {
         _id: uuidv4(),
         created_at: new Date().toISOString().split('T')[0],
-        name: "Men Round Neck Pure Cotton T-shirt",
+        name: "Abaya Signature Abayas",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 200,
         image: [p_img2_1, p_img2_2, p_img2_3, p_img2_4],
@@ -196,7 +196,7 @@ export const products = [
     {
         _id: uuidv4(),
         created_at: new Date().toISOString().split('T')[0],
-        name: "Men Round Neck Pure Cotton T-shirt",
+        name: "Abaya Signature Abayas",
         description: "A lightweight, usually knitted, pullover shirt, close-fitting and with a round neckline and short sleeves, worn as an undershirt or outer garment.",
         price: 200,
         image: [p_img2_1, p_img2_2, p_img2_3, p_img2_4],
