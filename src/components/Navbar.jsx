@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 import { Link, NavLink, useNavigate } from 'react-router-dom';
 import { assets } from '../assets/assets';
@@ -19,6 +19,20 @@ const Navbar = () => {
     const navigate = useNavigate();
     const dispatch = useDispatch();
     const cartCount = useSelector(selectCartCount);
+
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768) {
+                setVisble(false);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
 
     return (
         <>
@@ -56,7 +70,7 @@ const Navbar = () => {
                     <img onClick={() => setVisble(true)} className='w-5 cursor-pointer sm:hidden' src={assets.menu_icon} alt="" />
                 </div>
 
-                <div className={`absolute top-0 right-0 bottom-0 z-[1000] overflow-hidden bg-white transition-all ${visible ? 'w-full' : 'w-0'}`} >
+                {/* <div className={`absolute top-0 right-0 bottom-0 z-[1000] overflow-hidden !bg-white transition-all ${visible ? 'w-full' : 'w-0'} shadow-lg`} >
                     <div className='flex flex-col text-gray-600'>
                         <div onClick={() => setVisble(false)} className='flex items-center gap-4 p-3 '>
                             <img className='h-4 rotate-180' src={assets.dropdown_icon} alt="" />
@@ -67,7 +81,24 @@ const Navbar = () => {
                         <NavLink onClick={() => setVisble(false)} to='/about' className='py-2 pl-6 border'>ABOUT</NavLink>
                         <NavLink onClick={() => setVisble(false)} to='/contact' className='py-2 pl-6 border'>CONTACT</NavLink>
                     </div>
+                </div> */}
+
+                <div className={`fixed top-0 left-0 h-full w-1/2 !bg-white transition-all transform ${visible ? 'translate-x-0' : '-translate-x-full'} shadow-lg`}>
+                    <div className='flex flex-col text-gray-600'>
+                        <div className="flex items-center justify-center py-6">
+                            <img src={assets.logo} alt="Logo" className="w-24" />
+                        </div>
+                        <div onClick={() => setVisble(false)} className='flex items-center gap-4 p-3'>
+                            <img className='h-4 rotate-180' src={assets.dropdown_icon} alt="" />
+                            <p>Back</p>
+                        </div>
+                        <NavLink onClick={() => setVisble(false)} to="/" className='py-2 pl-6 border-b'>HOME</NavLink>
+                        <NavLink onClick={() => setVisble(false)} to='/product' className='py-2 pl-6 border-b'>COLLECTION</NavLink>
+                        <NavLink onClick={() => setVisble(false)} to='/about' className='py-2 pl-6 border-b'>ABOUT</NavLink>
+                        <NavLink onClick={() => setVisble(false)} to='/contact' className='py-2 pl-6'>CONTACT</NavLink>
+                    </div>
                 </div>
+
             </div>
         </>
     )

@@ -19,8 +19,8 @@ const Hero = () => {
           </h1>
 
           <div className='flex items-center gap-3 mt-2'>
-            <button className='!bg-[#C9A227] !text-[#FFFFFF] px-6 py-2 font-semibold tracking-wide hover:!bg-[#B5835A] transition-all duration-300'>
-              SHOP NOW
+            <button className='!bg-[#C9A227] !text-[#FFFFFF] px-6 py-2 font-semibold tracking-wide hover:!bg-[#B5835A] transition-all duration-300 text-white transition-all duration-300'>
+              Shop Now
             </button>
             <p className='w-10 h-[1px] !bg-[#C9A227]'></p>
           </div>

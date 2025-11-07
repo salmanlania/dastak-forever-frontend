@@ -41,7 +41,7 @@ const Collection = () => {
   }, [products]);
 
   useEffect(() => {
-    let filtered = items;
+    let filtered = [...items];
 
     if (category !== "All") {
       filtered = filtered.filter((item) => item?.category === category);

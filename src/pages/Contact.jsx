@@ -26,11 +26,13 @@ const Contact = () => {
           <div>
             <p className="!text-xl font-semibold !text-[#2C2420]">Visit Us</p>
             <p className="!text-gray-600 mt-2">
-              Shop #xx, Main Road, Karachi, Pakistan <br/> Near Dolmen Mall / Clifton
+              Shop #xx, Main Road, Karachi, Pakistan <br /> Near Dolmen Mall / Clifton
             </p>
 
             <p className="!text-gray-600 mt-2">
-              Phone: +92 300 1234567 <br/>
+              Phone:  <a href="tel:+923352778111" className="hover:text-[#C9A227]">
+                +92 335 2778111
+              </a> <br />
               Email: support@dastakhat.pk
             </p>
           </div>

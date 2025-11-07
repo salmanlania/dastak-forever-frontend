@@ -39,7 +39,7 @@ export const loginUser = createAsyncThunk(
                 token: session.access_token,
             };
 
-            Cookies.set("token", customerData.token, { expires: 7 });
+            Cookies.set("userToken", customerData.token, { expires: 7 });
             Cookies.set("customer_id", customerData.customer_id, { expires: 7 });
 
             return customerData;

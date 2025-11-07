@@ -13,6 +13,7 @@ const ProductItem = ({ id, image, name, price, sizes, hideCartButton }) => {
   const handleAddToCart = (e) => {
     e.preventDefault();
     // const user_token = localStorage.getItem('userToken');
+    // const user_token = localStorage.getItem('userToken');
 
     // if (!user_token) {
     //   window.open(
