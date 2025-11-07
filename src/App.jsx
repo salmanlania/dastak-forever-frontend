@@ -5,7 +5,7 @@ import { fetchProducts } from './store/productsSlice';
 import ComingSoon from './tempComponent/ComingSoon';
 
 export default function App() {
-  // const dispatch = useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchProducts());
