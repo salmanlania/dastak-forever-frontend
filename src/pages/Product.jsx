@@ -5,14 +5,18 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate, useParams } from 'react-router-dom';
 import { assets } from '../assets/assets';
 import RelatedProducts from '../components/RelatedProducts';
+import { motion, AnimatePresence, useScroll, useMotionValueEvent } from "framer-motion";
 import { addToCart } from "../store/cartSlice";
+import { toast } from "react-toastify";
 
 const Product = () => {
   const { productId } = useParams();
   const products = useSelector((state) => state.product.items || []);
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { scrollY } = useScroll();
 
+  const [showStickyBar, setShowStickyBar] = useState(false);
   const [productData, setProductData] = useState(null);
   const [size, setSize] = useState('');
   const [image, setImage] = useState('');
@@ -20,12 +24,17 @@ const Product = () => {
   const [loading, setLoading] = useState(true);
   const currency = "Rs.";
 
+  useMotionValueEvent(scrollY, "change", (latest) => {
+    if (latest > 500) setShowStickyBar(true);
+    else setShowStickyBar(false);
+  });
+
   useEffect(() => {
     const product = products.find((item) => item._id === productId);
     if (product) {
       setProductData(product);
       setImage(product.image[0]);
-      setTimeout(() => setLoading(false), 600); // Simulate shimmer load
+      setTimeout(() => setLoading(false), 600);
     }
   }, [products, productId]);
 
@@ -43,7 +52,7 @@ const Product = () => {
 
   const handleAddToCart = () => {
     if (!size) {
-      alert('Please select a size');
+      toast.success('Please select a size');
       return;
     }
     dispatch(addToCart({ id: productData._id, size, quantity: 1 }));
@@ -74,8 +83,7 @@ const Product = () => {
   }
 
   return (
-    <div className="border-t pt-10">
-      {/* Back Button */}
+    <div className="border-t pt-10 pb-24 md:pb-10">
       <button
         onClick={() => navigate(-1)}
         className="mb-6 flex items-center gap-1 !text-gray-700 hover:!text-black sticky top-2 !bg-white/80 backdrop-blur-md border px-3 py-2 rounded-full shadow-sm z-10"
@@ -84,7 +92,6 @@ const Product = () => {
       </button>
 
       <div className="flex flex-col lg:flex-row gap-12">
-        {/* Product Images */}
         <div className="flex-1 flex flex-col items-center">
           <div className="w-full max-w-[600px] border rounded-lg overflow-hidden !bg-gray-50">
             <img
@@ -98,11 +105,10 @@ const Product = () => {
             <button
               onClick={handlePrev}
               disabled={startIndex === 0}
-              className={`absolute left-0 top-1/2 -translate-y-1/2 border rounded-full p-1 shadow-md transition ${
-                startIndex === 0
-                  ? 'opacity-30 cursor-not-allowed'
-                  : 'hover:!bg-gray-100 !bg-white'
-              }`}
+              className={`absolute left-0 top-1/2 -translate-y-1/2 border rounded-full p-1 shadow-md transition ${startIndex === 0
+                ? 'opacity-30 cursor-not-allowed'
+                : 'hover:!bg-gray-100 !bg-white'
+                }`}
             >
               <IoChevronBack className="!text-lg" />
             </button>
@@ -116,11 +122,10 @@ const Product = () => {
                     onClick={() => setImage(item)}
                     src={item}
                     alt=""
-                    className={`w-24 h-24 object-cover rounded-md cursor-pointer border ${
-                      image === item
-                        ? 'border-black'
-                        : 'border-gray-200 hover:border-black'
-                    } transition-all`}
+                    className={`w-24 h-24 object-cover rounded-md cursor-pointer border ${image === item
+                      ? 'border-black'
+                      : 'border-gray-200 hover:border-black'
+                      } transition-all`}
                   />
                 ))}
             </div>
@@ -128,18 +133,16 @@ const Product = () => {
             <button
               onClick={handleNext}
               disabled={startIndex + 4 >= productData.image.length}
-              className={`absolute right-0 top-1/2 -translate-y-1/2 border rounded-full p-1 shadow-md transition ${
-                startIndex + 4 >= productData.image.length
-                  ? 'opacity-30 cursor-not-allowed'
-                  : 'hover:!bg-gray-100 !bg-white'
-              }`}
+              className={`absolute right-0 top-1/2 -translate-y-1/2 border rounded-full p-1 shadow-md transition ${startIndex + 4 >= productData.image.length
+                ? 'opacity-30 cursor-not-allowed'
+                : 'hover:!bg-gray-100 !bg-white'
+                }`}
             >
               <IoChevronForward className="!text-lg" />
             </button>
           </div>
         </div>
 
-        {/* Product Info */}
         <div className="flex-1">
           <h1 className="font-semibold !text-3xl mb-3">{productData.name}</h1>
 
@@ -172,11 +175,10 @@ const Product = () => {
                   <button
                     key={index}
                     onClick={() => setSize(item)}
-                    className={`border py-2 px-4 rounded-md ${
-                      size === item
-                        ? 'border-black !bg-black !text-white'
-                        : '!bg-gray-100 hover:!bg-gray-200'
-                    }`}
+                    className={`border py-2 px-4 rounded-md ${size === item
+                      ? 'border-black !bg-black !text-white'
+                      : '!bg-gray-100 hover:!bg-gray-200'
+                      }`}
                   >
                     {item}
                   </button>
@@ -189,10 +191,51 @@ const Product = () => {
 
           <button
             onClick={handleAddToCart}
-            className="!bg-[#C9A227] !text-white px-6 py-2 font-semibold tracking-wide hover:!bg-[#B5835A] transition-all duration-300"
+            className="hidden md:inline-block !bg-[#C9A227] !text-white px-6 py-2 font-semibold tracking-wide hover:!bg-[#B5835A] transition-all duration-300"
           >
             Add to Cart
           </button>
+
+          {/* <div className="fixed bottom-0 left-0 right-0 !bg-white border-t border-gray-200 shadow-md md:hidden z-50">
+            <div className="flex justify-between items-center px-4 py-3">
+              <div>
+                <p className="font-semibold !text-gray-800">{currency}{productData.price}</p>
+                <p className="!text-xs !text-gray-500">{productData.name}</p>
+              </div>
+              <button
+                onClick={handleAddToCart}
+                className="!bg-[#C9A227] !text-white px-6 py-2 rounded-md font-semibold hover:!bg-[#B5835A] transition-all duration-300"
+              >
+                Add to Cart
+              </button>
+            </div>
+          </div> */}
+
+          <AnimatePresence>
+            {showStickyBar && (
+              <motion.div
+                key="mobile-addtocart"
+                initial={{ y: "100%", opacity: 0 }}
+                animate={{ y: 0, opacity: 1 }}
+                exit={{ y: "100%", opacity: 0 }}
+                transition={{ type: "spring", stiffness: 120, damping: 18 }}
+                className="fixed bottom-0 left-0 right-0 !bg-white border-t border-gray-200 shadow-lg md:hidden z-50"
+              >
+                <div className="flex justify-between items-center px-4 py-3">
+                  <div>
+                    <p className="font-semibold !text-gray-800">{currency}{productData.price}</p>
+                    <p className="!text-xs !text-gray-500 truncate max-w-[160px]">{productData.name}</p>
+                  </div>
+                  <button
+                    onClick={handleAddToCart}
+                    className="!bg-[#C9A227] !text-white px-6 py-2 rounded-md font-semibold hover:!bg-[#B5835A] transition-all duration-300"
+                  >
+                    Add to Cart
+                  </button>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
 
           <hr className="my-8 w-4/5" />
 
@@ -203,7 +246,6 @@ const Product = () => {
         </div>
       </div>
 
-      {/* Fabric & Care */}
       <div className="mt-20">
         <div className="flex border-b">
           <b className="px-5 py-3 !text-sm border-t border-l border-r !bg-gray-100">
@@ -220,7 +262,6 @@ const Product = () => {
         </div>
       </div>
 
-      {/* Size & Fit */}
       <div className="mt-10">
         <div className="flex border-b">
           <b className="px-5 py-3 !text-sm border-t border-l border-r !bg-gray-100">
@@ -236,7 +277,6 @@ const Product = () => {
         </div>
       </div>
 
-      {/* Shipping & Returns */}
       <div className="mt-10">
         <div className="flex border-b">
           <b className="px-5 py-3 !text-sm border-t border-l border-r !bg-gray-100">

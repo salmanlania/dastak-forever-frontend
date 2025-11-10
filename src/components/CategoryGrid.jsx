@@ -38,8 +38,6 @@ const CategoryGrid = () => {
         },
     ];
 
-    console.log('categories' , categories.length)
-
     return (
         <section className="!py-8 !bg-[#FAF9F6]">
             <div className="!text-center mb-10">

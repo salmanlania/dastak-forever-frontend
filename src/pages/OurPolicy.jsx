@@ -1,69 +1,68 @@
 const ReturnPolicy = () => {
   return (
-    <section className="min-h-screen bg-white text-gray-800 flex items-center justify-center px-6 py-20">
-      <div className="max-w-3xl w-full">
-        <h1 className="text-3xl md:text-4xl font-semibold text-center text-black mb-4 tracking-wide">
-          Dasthakat Return Policy
-        </h1>
-        <p className="text-center text-sm text-gray-500 mb-12">
-          Operational from November 2025
-        </p>
+    <div className="!!bg-[#faf8f6] border-t py-12">
+      <div className="max-w-4xl mx-auto px-4">
+        <div className="!!bg-white border border-gray-100 shadow-sm rounded-2xl p-8">
+          <h1 className="!text-2xl md:!text-3xl font-semibold !text-[#2C2420] mb-2 tracking-wide">
+            Return Policy
+          </h1>
+          <p className="!text-sm !text-gray-500 mb-8">Updated November 2025</p>
 
-        <div className="bg-[#fdfdfd] rounded-2xl shadow-md p-6 md:p-10 space-y-8 border border-gray-200">
-          <h2 className="text-2xl font-semibold text-[#C19A6B]">
-            No Return Policy
-          </h2>
-          <p className="text-gray-700 leading-relaxed">
-            At <strong>Dasthakat</strong>, every abaya is stitched with precision and care.
-            Since each product is customized and made-to-order, we maintain a
-            strict <strong>No Return, No Exchange</strong> policy.
-          </p>
+          <div className="space-y-8 !text-[15px] leading-relaxed !text-[#3D3D3D]">
+            <div>
+              <h2 className="!text-xl font-semibold !text-[#C4A484] mb-2">
+                No Returns or Exchanges
+              </h2>
+              <p>
+                Every <strong>Dasthakat</strong> abaya is individually handcrafted to order.
+                Because each piece is made exclusively for you, we maintain a
+                <strong> no return or exchange</strong> policy.
+              </p>
+            </div>
 
-          <div>
-            <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
-              Order Accuracy
-            </h3>
-            <p className="text-gray-700 leading-relaxed">
-              Please double-check your size, color, and fabric preferences before
-              confirming your order. Once an order is placed, it cannot be modified
-              or canceled.
-            </p>
-          </div>
+            <div>
+              <h2 className="!text-xl font-semibold !text-[#C4A484] mb-2">
+                Confirm Before You Order
+              </h2>
+              <p>
+                Please ensure your selected size, color, and fabric are correct before checkout.
+                Once an order is placed, it cannot be changed or canceled, as tailoring begins immediately.
+              </p>
+            </div>
 
-          <div>
-            <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
-              Damaged or Defective Items
-            </h3>
-            <p className="text-gray-700 leading-relaxed">
-              In the rare case that you receive a damaged item, please contact us
-              within <strong>24 hours</strong> of delivery at{" "}
-              <a
-                href="mailto:support@dasthakat.com"
-                className="text-[#C19A6B] underline hover:text-[#a17d55] transition-colors"
-              >
-                support@dasthakat.com
-              </a>
-              . Our team will review your case and guide you through the next steps.
-            </p>
-          </div>
+            <div>
+              <h2 className="!text-xl font-semibold !text-[#C4A484] mb-2">
+                Damaged or Defective Items
+              </h2>
+              <p>
+                If your item arrives damaged, contact us within <strong>24 hours</strong> of delivery at{" "}
+                <a
+                  href="mailto:support@dasthakat.com"
+                  className="!text-[#C4A484] underline hover:!text-[#B5835A] transition-colors"
+                >
+                  support@dasthakat.com
+                </a>.
+                Our team will review and assist you promptly.
+              </p>
+            </div>
 
-          <div>
-            <h3 className="text-xl font-semibold text-[#C19A6B] mb-2">
-              Customer Commitment
-            </h3>
-            <p className="text-gray-700 leading-relaxed">
-              We take pride in the quality and craftsmanship of our abayas. Each
-              design reflects elegance, modesty, and comfort — handmade for you by
-              <strong> Dasthakat</strong>.
-            </p>
+            <div>
+              <h2 className="!text-xl font-semibold !text-[#C4A484] mb-2">
+                Our Craft Promise
+              </h2>
+              <p>
+                Each design at <strong>Dasthakat</strong> is created with precision, grace, and care.
+                Our goal is timeless modest fashion made with integrity — crafted exclusively for you.
+              </p>
+            </div>
           </div>
         </div>
 
-        <p className="text-center text-gray-500 text-sm mt-10">
+        <p className="!text-center !text-gray-400 !text-sm mt-10">
           © {new Date().getFullYear()} Dasthakat. All Rights Reserved.
         </p>
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -15,6 +15,9 @@ const Cart = () => {
   const [cartData, setCartData] = useState([]);
 
   useEffect(() => {
+
+    if (!products.length) return;
+
     const tempData = [];
     for (const id in cartItems) {
       for (const size in cartItems[id]) {
@@ -28,9 +31,7 @@ const Cart = () => {
       }
     }
     setCartData(tempData);
-  }, [cartItems]);
-
-  console.log('cartItems', cartItems)
+  }, [cartItems, products]);
 
   const handleQuantityChange = (id, size, value) => {
     if (!value || value < 1) return;
@@ -50,16 +51,34 @@ const Cart = () => {
       <div className="max-w-6xl mx-auto grid grid-cols-1 lg:grid-cols-[2fr_1fr] gap-10">
         <div className="space-y-6">
           {cartData.length === 0 && (
-            <p className="!text-gray-500 !text-center !text-sm">
-              Your cart is empty.
-            </p>
+            <div className="!text-center space-y-3">
+              <p className="!text-gray-500 !text-sm">Your cart is empty.</p>
+              <button
+                onClick={() => navigate("/products")}
+                className="!bg-[#C9A227] !text-[#FFFFFF] px-4 py-2 rounded-lg text-sm hover:!bg-[#B5835A] transition-all"
+              >
+                Continue Shopping
+              </button>
+            </div>
+          )}
+
+          {!products.length && (
+            <div className="animate-pulse space-y-4">
+              {[1, 2, 3].map((i) => (
+                <div key={i} className="flex items-center gap-4 p-4 border rounded-2xl">
+                  <div className="w-20 h-20 !bg-gray-200 rounded-lg"></div>
+                  <div className="flex-1 space-y-2">
+                    <div className="w-32 h-4 !bg-gray-200 rounded"></div>
+                    <div className="w-20 h-3 !bg-gray-200 rounded"></div>
+                  </div>
+                </div>
+              ))}
+            </div>
           )}
 
           {cartData.map((item, index) => {
             const productData = products.find((p) => p._id === item._id);
-            console.log('productData' , productData)
             if (!productData) return null;
-
             return (
               <div
                 key={index}
@@ -67,7 +86,8 @@ const Cart = () => {
               >
                 <div className="flex items-center gap-4 w-full sm:w-auto">
                   <img
-                    className="w-20 h-20 object-cover rounded-lg"
+                    onClick={() => navigate(`/product/${productData._id}`)}
+                    className="w-20 h-20 object-cover rounded-lg cursor-pointer transition-transform duration-300 hover:scale-105"
                     src={productData?.image[0]}
                     alt={productData?.name}
                   />
@@ -105,16 +125,20 @@ const Cart = () => {
           })}
         </div>
 
-        <div className="!bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-sm h-fit">
-          <CartTotal />
-          <button
-            disabled={cartData.length <= 0}
-            onClick={() => navigate("/place-order")}
-            className="!bg-[#C9A227] !text-[#FFFFFF] !text-sm w-full py-3 mt-6 rounded-lg tracking-wide hover:!bg-[#B5835A] transition-all duration-300"
-          >
-            Proceed To Checkout
-          </button>
-        </div>
+        {
+          cartData.length ? (
+            <div className="!bg-gray-50 border border-gray-200 rounded-2xl p-6 shadow-sm h-fit">
+              <CartTotal />
+              <button
+                disabled={cartData.length <= 0}
+                onClick={() => navigate("/place-order")}
+                className="!bg-[#C9A227] !text-[#FFFFFF] !text-sm w-full py-3 mt-6 rounded-lg tracking-wide hover:!bg-[#B5835A] transition-all duration-300"
+              >
+                Proceed To Checkout
+              </button>
+            </div>
+          ) : null
+        }
       </div>
     </div>
   );

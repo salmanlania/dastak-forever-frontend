@@ -6,9 +6,6 @@ export const loginUser = createAsyncThunk(
     "user/loginUser",
     async ({ email, password, isSignUp, fullName }, { rejectWithValue }) => {
         try {
-
-            console.log('data received in async action:', { email, password, isSignUp, fullName });
-            // return
             let response;
 
             if (isSignUp) {
@@ -18,19 +15,15 @@ export const loginUser = createAsyncThunk(
                     options: { data: { full_name: fullName } },
                 });
 
-                console.log('isSignUp response' , response)
             } else {
                 response = await supabase.auth.signInWithPassword({ email, password });
             }
 
             if (response?.error){
-                console.log('response.error' , response.error)
                 throw response.error
             } ;
 
             const { user, session } = response.data;
-            console.log('user' , user)
-            console.log('session' , session)
 
             const customerData = {
                 customer_id: user.id,

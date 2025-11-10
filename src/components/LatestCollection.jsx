@@ -1,9 +1,8 @@
-import React, { useContext, useEffect, useState } from 'react'
-import Title from './Title'
-import { ShopContext } from '../context/ShopContext'
-import ProductItem from './ProductItem'
+import { useEffect, useState } from 'react'
+import { useSelector } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { useSelector } from 'react-redux';
+import ProductItem from './ProductItem'
+import Title from './Title'
 
 const LatestCollection = () => {
     const navigate = useNavigate()
@@ -17,7 +16,7 @@ const LatestCollection = () => {
     }, [products])
 
     return (
-        <div className='my-16 !bg-[#FAF9F6] py-10'>
+        <div className='my-8 !bg-[#FAF9F6] py-4'>
 
             <div className='text-center pb-10'>
                 <Title text1={"LATEST"} text2={"COLLECTIONS"} />
@@ -55,7 +54,6 @@ const LatestCollection = () => {
                     View All Collections
                 </button>
             </div>
-
         </div>
     )
 }

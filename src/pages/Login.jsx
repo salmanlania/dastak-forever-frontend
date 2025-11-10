@@ -25,8 +25,6 @@ const Login = () => {
             fullName: "Muhammad Salman Lania",
             isSignUp: currentState === "Sign Up",
         }
-
-        // return console.log('data', data)
         dispatch(
             loginUser(data)
         );
