@@ -37,7 +37,7 @@ const ComingSoon = () => {
     }));
 
     useEffect(() => {
-        const launchDate = new Date('2025-12-07T00:00:00');
+        const launchDate = new Date('2025-11-26T00:00:00');
 
         const calculateTimeLeft = () => {
             const now = new Date().getTime();
